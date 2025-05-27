@@ -19,7 +19,7 @@ Hay que clonar el repo primero en la computadora para trabajar en él.
 3. Clonar el repositorio con este comando:
 
    ```bash
-   git clone https://github.com/tmsbsq11/utn-proyectos.git
+   git clone https://github.com/Gramsoul/Tic-Tac-Toe.git
    ```
 
 ### 2. **Navegar al repositorio**
