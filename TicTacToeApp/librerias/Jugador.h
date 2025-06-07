@@ -2,11 +2,13 @@
 #define JUGADOR_H_INCLUDED
 
 typedef struct{
+    int id;
     char nombre[20];
     char apellido[20];
     char email[40];
     char contra[50];
     char figura;
+    //int cuentaActiva;
 }stJugador;
 
 void mostrarJugador(stJugador data);

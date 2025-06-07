@@ -165,21 +165,22 @@
 	<stdlib.h>
 	"librerias/controApp.h"
 
-1749331760 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.c
+1749335195 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.c
 	<stdio.h>
 	"archivos.h"
 	"Jugador.h"
 
-1749332106 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.h
+1749335209 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.h
 	"Jugador.h"
 
-1749333347 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1749334598 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1749332033 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1749334113 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
+	<string.h>
 	"Jugador.h"
 
-1749332200 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.c
+1749335359 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.c
 	<string.h>
 	<stdio.h>
 	<conio.h>
@@ -229,7 +230,7 @@
 	<time.h>
 	"librerias/controApp.h"
 
-1749331620 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1749335367 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	"controApp.h"
 	"Jugador.h"

@@ -9,12 +9,19 @@
 
 
 void inicializarApp(){
+    stJugador data_players[50];
+    int vData_players = 0;
+    char name_data_players[] = "data/datajugadores.dat";
+    cargarArchivoArr(data_players, &vData_players, name_data_players);
+
+    mostrarArrJugadores(data_players, vData_players);
+
     /*
     char tablero[3][3];
     rellenarTablero(tablero);
     controlApp(tablero);
+    login(data_players, vData_players);
     */
-    login();
 }
 
 void controlApp(char tablero[3][3]){

@@ -5,21 +5,13 @@
 #include "Jugador.h"
 #include "archivos.h"
 
-void login(){
-    stJugador data_players[50];
-    int vData_players = 0;
-    char name_data_players[] = "data/datajugadores.dat";
-    cargarArchivoArr(data_players, &vData_players, name_data_players);
+void login(stJugador data[], int data_v){
 
-    mostrarArrJugadores(data_players, vData_players);
-
-    /*
     stJugador aux = dataLogin();
 
-    int login = buscarJugadorLogin(data, vData, aux);
+    int login = buscarJugadorLogin(data, data_v, aux);
     if(login == 0){ printf("LOGEADO..\n"); }
     else{ printf("ERROR en los datos ingresados..\n"); }
-    */
 }
 
 
