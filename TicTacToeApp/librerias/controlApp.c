@@ -9,7 +9,6 @@
 
 void inicializarApp(){
     char tablero[3][3];
-    srand(time(NULL));
     rellenarTablero(tablero);
     controlApp(tablero);
 }
@@ -33,16 +32,17 @@ void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int i
     int tTotal = 0, vic = 0, turno = 1;
 
     while(tTotal < 9 && !vic){
-        if(turno){ accionesPorTurno(player1, tablero, vic, 0); }
-        else{ accionesPorTurno(player2, tablero, vic, isCPU); }
+        if(turno){ accionesPorTurno(player1, tablero, &vic, 0); }
+        else{ accionesPorTurno(player2, tablero, &vic, isCPU); }
+        tTotal++;
         turno = 1 - turno;
     }
     if(!vic) { printf("EMPATE!\n"); }
 }
 
-void accionesPorTurno(stJugador player, char tablero[3][3], int vic, int isCPU){
+void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU){
     turnoJugador(player, isCPU, tablero);
     mostrarTablero(tablero);
-    vic = checkVictory(tablero, player.figura);
-    victoria(vic, player.nombre);
+    *vic = checkVictory(tablero, player.figura);
+    victoria(*vic, player.nombre);
 }
