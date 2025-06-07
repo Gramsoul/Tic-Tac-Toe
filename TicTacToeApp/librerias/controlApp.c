@@ -5,12 +5,16 @@
 #include "victory.h"
 #include "menus.h"
 #include "turnos.h"
+#include "login.h"
 
 
 void inicializarApp(){
+    /*
     char tablero[3][3];
     rellenarTablero(tablero);
     controlApp(tablero);
+    */
+    login();
 }
 
 void controlApp(char tablero[3][3]){

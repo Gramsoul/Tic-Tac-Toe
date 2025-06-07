@@ -6,15 +6,20 @@
 #include "archivos.h"
 
 void login(){
-    stJugador data[50];
-    int vData = 0;
-    cargarArchivoArr(data, &vData);
+    stJugador data_players[50];
+    int vData_players = 0;
+    char name_data_players[] = "data/datajugadores.dat";
+    cargarArchivoArr(data_players, &vData_players, name_data_players);
+
+    mostrarArrJugadores(data_players, vData_players);
+
+    /*
     stJugador aux = dataLogin();
 
     int login = buscarJugadorLogin(data, vData, aux);
-
     if(login == 0){ printf("LOGEADO..\n"); }
     else{ printf("ERROR en los datos ingresados..\n"); }
+    */
 }
 
 

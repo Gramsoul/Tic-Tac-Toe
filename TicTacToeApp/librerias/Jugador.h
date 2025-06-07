@@ -10,5 +10,8 @@ typedef struct{
 }stJugador;
 
 void mostrarJugador(stJugador data);
+void mostrarArrJugadores(stJugador arr[], int v);
+void passwordCorrect(stJugador *player);
+void emailValido(stJugador *player);
 
 #endif // JUGADOR_H_INCLUDED

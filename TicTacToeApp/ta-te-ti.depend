@@ -165,21 +165,21 @@
 	<stdlib.h>
 	"librerias/controApp.h"
 
-1748052421 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.c
+1749331760 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.c
 	<stdio.h>
 	"archivos.h"
 	"Jugador.h"
 
-1748052348 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.h
+1749332106 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\archivos.h
 	"Jugador.h"
 
-1748231507 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1749333347 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1748230807 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1749332033 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	"Jugador.h"
 
-1748057060 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.c
+1749332200 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.c
 	<string.h>
 	<stdio.h>
 	<conio.h>
@@ -207,7 +207,7 @@
 
 1746865139 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\tablero.h
 
-1749331043 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\turnos.c
+1749331323 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\turnos.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -223,13 +223,13 @@
 
 1746915139 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\victory.h
 
-1749329463 source:d:\proyectos\tic-tac-toe\tictactoeapp\main.c
+1749331593 source:d:\proyectos\tic-tac-toe\tictactoeapp\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"librerias/controApp.h"
 
-1749329562 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1749331620 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	"controApp.h"
 	"Jugador.h"
@@ -237,4 +237,5 @@
 	"victory.h"
 	"menus.h"
 	"turnos.h"
+	"login.h"
 

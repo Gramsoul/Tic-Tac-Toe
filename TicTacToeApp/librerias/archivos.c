@@ -13,8 +13,8 @@ void cargarArchivo(char name[]){
     } else { printf("ERROR al cargar archivo %s", name); }
 }
 
-void cargarArchivoArr(stJugador data[], int *i){
-    FILE *file = fopen(DATAJ, "rb");
+void cargarArchivoArr(stJugador data[], int *i, char name[]){
+    FILE *file = fopen(name, "rb");
     if(file){
         stJugador aux;
         while(fread(&aux, sizeof(stJugador), 1, file) > 0){

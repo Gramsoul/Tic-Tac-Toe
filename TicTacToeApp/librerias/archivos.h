@@ -6,7 +6,7 @@
 
 void guardarJugador(stJugador data);
 void cargarArchivo(char name[]);
-void cargarArchivoArr(stJugador data[], int *i);
+void cargarArchivoArr(stJugador data[], int *i, char name[]);
 int cantEntidades(FILE *file, size_t tam);
 
 
