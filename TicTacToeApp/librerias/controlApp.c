@@ -1,42 +1,45 @@
 #include <time.h>
+#include <stdio.h>
+#include <windows.h>
+#include "tablero.h"
 #include "controApp.h"
 #include "Jugador.h"
-#include "tablero.h"
 #include "victory.h"
 #include "menus.h"
 #include "turnos.h"
 #include "login.h"
+#include "controlDatos.h"
 
 
 void inicializarApp(){
-    stJugador data_players[50];
-    int vData_players = 0;
-    char name_data_players[] = "data/datajugadores.dat";
-    cargarArchivoArr(data_players, &vData_players, name_data_players);
+    int isAdmin = 0;
 
-    mostrarArrJugadores(data_players, vData_players);
+    maximizarConsola();
+    menuPrincipal(isAdmin);
+    cargaDataBase();
 
-    /*
-    char tablero[3][3];
+    /*char tablero[3][3];
     rellenarTablero(tablero);
-    controlApp(tablero);
-    login(data_players, vData_players);
-    */
+    controlApp(tablero);*/
+    //login(data_players, vData_players);
+
 }
 
 void controlApp(char tablero[3][3]){
+    /*
     int select = 0;
 
     stJugador Player1 = {"Gonzalo", "Gallego", "email@gmail.com", "1234", 'G'};
     stJugador Player2 = {"Romina", "Gimenez", "email@gmail.com", "1234", 'R'};
     stJugador CPU = {"CPU", "PC", "email@gmail.com", "1234", 'X'};
+
     select = seleccionModo();
 
     mostrarTablero(tablero);
     if(select == 1){ modoDeJuego(Player1, Player2, tablero, 0); }
     else { modoDeJuego(Player1, Player2, tablero, -1); }
-
     resetApp();
+    */
 }
 
 void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int isCPU){

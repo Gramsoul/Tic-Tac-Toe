@@ -43,6 +43,10 @@
 		<Unit filename="librerias/controlApp.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="librerias/controlDatos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="librerias/controlDatos.h" />
 		<Unit filename="librerias/login.c">
 			<Option compilerVar="CC" />
 		</Unit>

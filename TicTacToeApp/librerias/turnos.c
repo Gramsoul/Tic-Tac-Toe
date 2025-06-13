@@ -18,28 +18,6 @@ void turnoJugador(stJugador jugador, int pos, char tablero[3][3]){
     buscarPosicion(jugador, pos, tablero, isCPU);
 
 }
-/*
-void buscarPosicion(stJugador jugador, int pos, char tablero[3][3], int isCPU){  ///Antigua funcion de posicion
-    int i = 0, j = 0, f = 0;
-
-    while(!f){
-        int count = 1;
-        for(i=0; i<3 && !f; i++){
-            for(j=0; j<3 && !f; j++){
-                if(pos == count){
-                    if(tablero[i][j] == ' '){
-                        tablero[i][j] = jugador.figura;
-                        f = 1;
-                    }
-                    else {
-                        pos = pedirPosicion(isCPU);
-                    }
-                } else{ count++; }
-            }
-        }
-    }
-}
-*/
 
 void buscarPosicion(stJugador jugador, int pos, char tablero[3][3], int isCPU){
     int f = 0;

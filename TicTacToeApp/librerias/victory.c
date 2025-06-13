@@ -1,4 +1,5 @@
 #include "victory.h"
+#include <stdlib.h>
 
 
 void victoria(int n, char name[]){

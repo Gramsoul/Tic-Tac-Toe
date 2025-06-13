@@ -8,12 +8,16 @@ typedef struct{
     char email[40];
     char contra[50];
     char figura;
-    //int cuentaActiva;
+    int cuentaActiva;
+    int isAdmin;
 }stJugador;
 
 void mostrarJugador(stJugador data);
 void mostrarArrJugadores(stJugador arr[], int v);
 void passwordCorrect(stJugador *player);
 void emailValido(stJugador *player);
+stJugador crearJugador(int cant_id);
+void deshabilitarID(stJugador data);
+
 
 #endif // JUGADOR_H_INCLUDED

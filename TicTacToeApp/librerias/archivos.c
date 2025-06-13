@@ -7,7 +7,12 @@ void cargarArchivo(const char name[]){
     if(file){
         stJugador aux;
         while(fread(&aux, sizeof(stJugador), 1, file) > 0){
-            mostrarJugador(aux);
+            printf("nombre: %s %s\n", aux.nombre, aux.apellido);
+            printf("email: %s\n", aux.email);
+            printf("figura: %c\n", aux.figura);
+            printf("pass: %s\n", aux.contra);
+            printf("ID: %d\n", aux.id);
+            printf("-----------------------------------\n");
         }
         fclose(file);
     } else { printf("ERROR al cargar archivo %s", name); }
@@ -21,7 +26,7 @@ void cargarArchivoArr(stJugador data[], int *i, const char name[]){
                 data[*i] = aux; (*i)++;
         }
         fclose(file);
-    } else { printf("ERROR al cargar archivo %s", DATAJ); }
+    } else { printf("ERROR al cargar archivo %s", DATA_JUGADORES); }
 }
 
 void guardarJugador(stJugador data, const char name[]){
@@ -31,8 +36,9 @@ void guardarJugador(stJugador data, const char name[]){
         fclose(file);
     }else{ printf("ERROR al guardar jugador\n"); }
 }
+
 void guardarArr(stJugador data[], int v, const char name[]){
-    FILE *file = fopen(name, "ab");
+    FILE *file = fopen(name, "wb");
     if(file){
         for(int i=0; i<v; i++){
             fwrite(&data[i], sizeof(stJugador), 1, file);
@@ -41,8 +47,10 @@ void guardarArr(stJugador data[], int v, const char name[]){
     }else{ printf("ERROR - ARR_PLAYER SIN GUARDAR.\n"); }
 }
 
-int cantEntidades(FILE *file, size_t tam){
+int cantEntidades(char name[], size_t tam){
     int max = 0, size = 0;
+    FILE *file = fopen(name, "rb");
+
     if(file){
         fseek(file, 0, SEEK_END);
         max = ftell(file);

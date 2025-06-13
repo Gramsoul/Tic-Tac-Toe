@@ -1,4 +1,6 @@
 #include "tablero.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 
 void mostrarTablero(char tablero[3][3]) {
