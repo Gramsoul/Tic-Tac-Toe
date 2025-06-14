@@ -4,6 +4,7 @@
 #include <windows.h>
 #include "menus.h"
 #include "controApp.h"
+#include "login.h"
 
 int seleccionModo(){
     system("cls");
@@ -25,6 +26,68 @@ int seleccionModo(){
     return select;
 }
 
+void menuLogin(/* params */) {
+    system("cls");
+    char menu[][30] = {
+        "Seleccione un menu",
+        "",
+        "1- Iniciar sesion",
+        "2- Registrar una cuenta nueva",
+        "3- Salir"
+    };
+    int v_menu = sizeof(menu)/sizeof(menu[0]);
+    menuCentrado(menu, v_menu);
+
+    int opcion = 0;
+     do {
+        scanf("%d", &opcion);
+
+        switch(opcion) {
+        case 1:
+            menuIniciarSesion(/* params */);
+            break;
+        case 2:
+            menuRegistrarCuenta(/* params */);
+            break;
+        case 3:
+            centrarMensajeHorizontalmente("Saliendo...");
+            break;
+        default:
+            centrarMensajeHorizontalmente("\nERROR\n");
+            break;
+        }
+     } while(opcion != 3)
+
+    /*
+    do {
+        flag_valido = login(/* params );
+        if(flag_valido == 0) {
+            printf("\Credenciales Incorrectas");
+        } else {
+            flag_resultado = 1;
+        }
+    } while(flag_valido == 0);
+    */
+}
+
+int menuIniciarSesion(/* params */) {
+    int salir = 0;
+    int flag = 0;
+
+    while(salir == 0 && flag == 0) {
+        flag = login(/* params */);
+        if(flag == 0) {
+            centrarMensajeHorizontalmente("Credenciales Incorrectas");
+            centrarMensajeHorizontalmente("ESC: Salir");
+            scanf("%d", &salir);
+            if(salir != 27) {
+                salir = 0;
+            }
+        }
+    }
+
+}
+
 void resetApp(){
     char select = 0;
     printf("\nRESET? ESC para volver al menu.\n");
@@ -34,8 +97,12 @@ void resetApp(){
 
 void menuPrincipal(int isAdmin){
     system("cls");
-    if(isAdmin){ menuAdmin(); }
-    else { menuBasico(); }
+    if(isAdmin){
+            menuAdmin();
+    }
+    else {
+            menuBasico();
+    }
 
     //Modificar para que esta fn muestre login/register
     //y dependiendo si es admin o no, llamar a las otras fn.

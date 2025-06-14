@@ -5,14 +5,20 @@
 #include "Jugador.h"
 #include "archivos.h"
 
-void login(stJugador data[], int data_v){
+int login(stJugador data[], int data_v){
+    int flag = 0;
 
     stJugador aux = dataLogin();
 
     int login = buscarJugadorLogin(data, data_v, aux);
-    if(login == 0){ printf("LOGEADO..\n"); }
-    else{ printf("ERROR en los datos ingresados..\n"); }
+    if(login == 0){
+            printf("LOGEADO...\n");
+            flag = 1;
+    }
+
+    return flag;
 }
+
 
 
 int buscarJugadorLogin(stJugador data[], int vData, stJugador aux){
@@ -34,10 +40,10 @@ int validarPassword(stJugador data, char pass[]){
 stJugador dataLogin(){
     stJugador aux;
     fflush(stdin);
-    printf("email? -> \n");
-    gets(aux.email);
+    printf("Email? -> \n");
+    emailValido(aux);
     fflush(stdin);
-    printf("password? -> \n");
+    printf("Password? -> \n");
     ocultarPassw(aux.contra, sizeof(aux.contra));
 
     return aux;

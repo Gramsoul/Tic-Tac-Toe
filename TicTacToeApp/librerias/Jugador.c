@@ -43,10 +43,9 @@ stJugador crearJugador(int cant_id){
     return player;
 }
 void emailValido(stJugador *player){
-    int f = 0;
-    printf("Email:\n");
+    int flag = 0;
 
-    while(!f){
+    while(!flag){
         char email[40];
         fflush(stdin);
 
@@ -56,7 +55,7 @@ void emailValido(stJugador *player){
 
         if(arroba && punto && punto > arroba){
             strcpy(player->email, email);
-            f = 1;
+            flag = 1;
         }
         else {
             printf("Email invalido, intente nuevamente..\n");

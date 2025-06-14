@@ -6,6 +6,7 @@ void resetApp();
 int seleccionModo();
 
 void menuPrincipal(int isAdmin);
+void menuLogin(/* params */);
 void menuBasico();
 void menuAdmin();
 void gotoxy(int x, int y);

@@ -35,6 +35,16 @@ void controlApp(char tablero[3][3]){
     stJugador Player2 = {2, "Romina", "Gimenez", "email@gmail.com", "1234", 'R', 1, 0};
     ///
 
+
+    menuLogin(/* params */); // while flag_resultado == 0 do
+
+    int flag = 0;
+    do {
+        flag = menuLogin(/* params */);
+
+
+    } while(flag == 0);
+
     while(select != 3){
         select = seleccionModo();
         switch(select){
