@@ -3,9 +3,8 @@
 #include "archivos.h"
 
 
-void cargaDataBase(){
-    stJugador data_players_arr[100];
-    int data_players_val = 0;
+void cargaDataBase(char data_players_arr[], int *data_players_val){
+
     ///MOVER LOS ARR y VAL A LA APP DE CONTROL O LA FUNCION MAS "GLOBAL". LUEGO HACER QUE SE RECIVA POR PARAMETRO
 
     cargarArchivoArr(data_players_arr, &data_players_val, DATA_JUGADORES);

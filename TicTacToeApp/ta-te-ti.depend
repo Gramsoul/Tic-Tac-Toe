@@ -174,9 +174,9 @@
 	"Jugador.h"
 	<stdio.h>
 
-1749929938 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1749935812 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1749929938 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1749935771 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -196,7 +196,7 @@
 1748057048 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.h
 	"Jugador.h"
 
-1749932520 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\menus.c
+1749932713 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -240,7 +240,7 @@
 	<time.h>
 	"librerias/controApp.h"
 
-1749931821 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1749934721 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<windows.h>
@@ -349,10 +349,10 @@
 1749854121 c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\controldatos.h
 	"Jugador.h"
 
-1749929938 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controldatos.h
+1749934571 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controldatos.h
 	"Jugador.h"
 
-1749929938 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controldatos.c
+1749934574 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controldatos.c
 	"Jugador.h"
 	"controlDatos.h"
 	"archivos.h"

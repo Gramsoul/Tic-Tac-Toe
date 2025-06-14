@@ -12,11 +12,13 @@
 
 
 void inicializarApp(){
+    stJugador data_players_arr[100];
+    int data_players_val = 0;
     int isAdmin = 1;///ESTA FUNCION LUEGO DEBE RECIBIR ISDAMIN POR PARAMETRO.
 
     maximizarConsola();
     //menuPrincipal(isAdmin);
-    cargaDataBase();
+    //cargaDataBase(data_players_arr, &data_players_val);
 
     char tablero[3][3];
     rellenarTablero(tablero);
@@ -54,8 +56,6 @@ void controlApp(char tablero[3][3]){
         }
     }
 
-    //if(select == 1){ modoDeJuego(Player1, Player2, tablero, 0); }
-    //else { modoDeJuego(Player1, Player2, tablero, -1); }
 }
 
 
