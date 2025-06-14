@@ -41,6 +41,7 @@ void menuPrincipal(int isAdmin){
 }
 
 void menuBasico(){
+    system("cls");
     int f = 0;
     char menu[][30] = {
         "Seleccionar opcion:",
@@ -81,6 +82,7 @@ void menuBasico(){
 }
 
 void menuAdmin(){
+    system("cls");
     int f = 0;
 
     char menu[][30] = {
