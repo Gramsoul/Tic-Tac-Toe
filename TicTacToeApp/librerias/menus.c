@@ -25,11 +25,16 @@ int seleccionModo(){
     return select;
 }
 
-void resetApp(){
+void resetApp(char tablero[3][3]){
     char select = 0;
     printf("\nRESET? ESC para volver al menu.\n");
     select = getch();
-    if(select != 27){ menuBasico(); }
+    if(select != 27){
+        rellenarTablero(tablero);
+        //MODODEJUEGO(PLAYER ACTUAL, PLAYER2 ACTUAL).
+    } else {
+        //seleccionModo();
+    }
 }
 
 void menuPrincipal(int isAdmin){

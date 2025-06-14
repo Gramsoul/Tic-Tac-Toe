@@ -14,17 +14,17 @@
 void inicializarApp(){
     stJugador data_players_arr[100];
     int data_players_val = 0;
-    int isAdmin = 1;///ESTA FUNCION LUEGO DEBE RECIBIR ISDAMIN POR PARAMETRO.
+    char tablero[3][3];
+    cargaDataBase(data_players_arr, &data_players_val);
 
     //maximizarConsola();
-    cargaDataBase(data_players_arr, &data_players_val);
-    //menuPrincipal(isAdmin);
-
-    char tablero[3][3];
-    rellenarTablero(tablero);
-    controlApp(tablero);
+    //menuPrincipal(1);
     //login(data_players, vData_players);
 
+    rellenarTablero(tablero);
+    controlApp(tablero);
+
+    finalizarApp(data_players_arr, data_players_val);
 }
 
 void controlApp(char tablero[3][3]){
@@ -43,12 +43,12 @@ void controlApp(char tablero[3][3]){
             case 1: {
                 mostrarTablero(tablero);
                 modoDeJuego(Player1, Player2, tablero, 0);
-                resetApp();
+                resetApp(tablero);
             break;}
             case 2: {
                 mostrarTablero(tablero);
                 modoDeJuego(Player1, Player2, tablero, -1);
-                resetApp();
+                resetApp(tablero);
             break;}
             case 3: {
                 menuPrincipal(0);
@@ -68,7 +68,7 @@ void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int i
         tTotal++;
         turno = 1 - turno;
     }
-    if(!vic) { printf("EMPATE!\n"); }
+    if(!vic) { centrarMensajeHorizontalmente("Victoria!."); }
 }
 
 void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU){

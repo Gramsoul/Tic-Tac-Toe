@@ -4,7 +4,9 @@
 
 void victoria(int n, char name[]){
     if (n == 1){
-        printf("victoria!! %s", name);
+        char msj[100];
+        sprintf(msj, "Victoria para %s", name);
+        centrarMensajeHorizontalmente(msj);
     }
 }
 int checkVictory(char tablero[3][3], char letra){ ///Las flag estan para que en caso de doble condicion de victoria, solo salte 1.

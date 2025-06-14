@@ -14,5 +14,6 @@ void menuCentrado(char options[][30], int cantidad);
 int contarPalabra(char arr[][30], int v);
 int dondeEstaY();
 void centrarMensajeHorizontalmente(char mensaje[]);
+void resetApp(char tablero[3][3]);
 
 #endif // MENUS_H_INCLUDED
