@@ -4,6 +4,7 @@
 #include <conio.h>
 #include "turnos.h"
 #include "Jugador.h"
+#include "menus.h"
 
 
 

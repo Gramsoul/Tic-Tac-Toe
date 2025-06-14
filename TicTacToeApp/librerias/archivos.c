@@ -26,7 +26,7 @@ void cargarArchivoArr(stJugador data[], int *i, const char name[]){
                 data[*i] = aux; (*i)++;
         }
         fclose(file);
-    } else { printf("ERROR al cargar archivo %s", DATA_JUGADORES); }
+    } else { printf("ERROR al cargar %s al array", DATA_JUGADORES); }
 }
 
 void guardarJugador(stJugador data, const char name[]){

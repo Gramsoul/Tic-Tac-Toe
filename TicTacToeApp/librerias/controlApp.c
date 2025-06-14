@@ -16,9 +16,9 @@ void inicializarApp(){
     int data_players_val = 0;
     int isAdmin = 1;///ESTA FUNCION LUEGO DEBE RECIBIR ISDAMIN POR PARAMETRO.
 
-    maximizarConsola();
+    //maximizarConsola();
+    cargaDataBase(data_players_arr, &data_players_val);
     //menuPrincipal(isAdmin);
-    //cargaDataBase(data_players_arr, &data_players_val);
 
     char tablero[3][3];
     rellenarTablero(tablero);
