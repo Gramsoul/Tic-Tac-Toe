@@ -12,21 +12,21 @@
 
 
 void inicializarApp(){
-    int isAdmin = 0;
+    int isAdmin = 1;///ESTA FUNCION LUEGO DEBE RECIBIR ISDAMIN POR PARAMETRO.
 
     maximizarConsola();
-    menuPrincipal(isAdmin);
+    //menuPrincipal(isAdmin);
     cargaDataBase();
 
-    /*char tablero[3][3];
+    char tablero[3][3];
     rellenarTablero(tablero);
-    controlApp(tablero);*/
+    controlApp(tablero);
     //login(data_players, vData_players);
 
 }
 
 void controlApp(char tablero[3][3]){
-    /*
+
     int select = 0;
 
     stJugador Player1 = {"Gonzalo", "Gallego", "email@gmail.com", "1234", 'G'};
@@ -39,7 +39,7 @@ void controlApp(char tablero[3][3]){
     if(select == 1){ modoDeJuego(Player1, Player2, tablero, 0); }
     else { modoDeJuego(Player1, Player2, tablero, -1); }
     resetApp();
-    */
+
 }
 
 void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int isCPU){

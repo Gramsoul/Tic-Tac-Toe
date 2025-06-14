@@ -271,7 +271,7 @@
 1749762656 c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\login.h
 	"Jugador.h"
 
-1749855706 source:c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\menus.c
+1749859315 source:c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -279,13 +279,14 @@
 	"menus.h"
 	"controApp.h"
 
-1749855522 c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\menus.h
+1749857844 c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\menus.h
 
 1749762656 c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\controapp.h
 	"Jugador.h"
 
-1749763485 source:c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\tablero.c
+1749859465 source:c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\tablero.c
 	"tablero.h"
+	"menus.h"
 	<stdlib.h>
 	<stdio.h>
 
@@ -303,7 +304,7 @@
 	<time.h>
 	"librerias/controApp.h"
 
-1749855495 source:c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1749859150 source:c:\users\gram\desktop\facultad\programacion i\git\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<windows.h>

@@ -8,5 +8,9 @@ int seleccionModo();
 void menuPrincipal(int isAdmin);
 void menuBasico();
 void menuAdmin();
+void gotoxy(int x, int y);
+void obtenerTamConsola(int *ancho, int *alto);
+void menuCentrado(char options[][30], int cantidad);
+int contarPalabra(char arr[][30], int v);
 
 #endif // MENUS_H_INCLUDED
