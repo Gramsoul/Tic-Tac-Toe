@@ -29,9 +29,9 @@ void controlApp(char tablero[3][3]){
 
     int select = 0;
 
-    stJugador Player1 = {"Gonzalo", "Gallego", "email@gmail.com", "1234", 'G'};
-    stJugador Player2 = {"Romina", "Gimenez", "email@gmail.com", "1234", 'R'};
-    stJugador CPU = {"CPU", "PC", "email@gmail.com", "1234", 'X'};
+    stJugador Player1 = {1, "Gonzalo", "Gallego", "email@gmail.com", "0122", 'G', 1, 1};
+    stJugador Player2 = {2, "Romina", "Gimenez", "email@gmail.com", "1234", 'R', 1, 0};
+    stJugador CPU = {0, "CPU", "PC", "email@gmail.com", "1234", 'X', 1, 0};
 
     select = seleccionModo();
 
