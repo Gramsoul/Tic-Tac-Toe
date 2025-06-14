@@ -14,7 +14,8 @@ int seleccionModo(){
         " ",
         " 1 - Jugador vs Jugador",
         " 2 - Jugador vs CPU",
-        " 3 - Salir"
+        " 3 - Desloguear",
+        " 4 - Salir"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
     menuCentrado(menu, tam_menu);
@@ -163,4 +164,21 @@ int contarPalabra(char arr[][30], int v){
     }
 
     return palMax;
+}
+
+int dondeEstaY(){
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+
+    return csbi.dwCursorPosition.Y;
+}
+
+void centrarMensajeHorizontalmente(char mensaje[]){
+    int anchoConsola, altoconsola;
+    obtenerTamConsola(&anchoConsola, &altoconsola);
+
+    int x = (anchoConsola - strlen(mensaje))/ 2;
+
+    gotoxy(x, dondeEstaY());
+    printf("%s\n", mensaje);
 }

@@ -41,12 +41,16 @@ int pedirPosicion(int isCpu){
 
     if(isCpu){ pos = rand()%9+1; }
     else {
-        printf("\nSeleccione posicion 1-9..\n");
+        char mensaje[] = "Seleccione una posicion desde 1 a 9.";
+        centrarMensajeHorizontalmente(mensaje);
         while(!f){
             scanf("%d", &pos);
             if(pos > 0 && pos < 10){
                 f = 1;
-            } else { printf("\nSeleccion incorrecta ingrese entre 1-9..\n"); }
+            } else {
+                char selIn[] = "Seleccion incorrecta ingrese entre 1-9..";
+                centrarMensajeHorizontalmente(selIn);
+            }
         }
 
     }

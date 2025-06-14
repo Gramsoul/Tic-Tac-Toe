@@ -29,18 +29,35 @@ void controlApp(char tablero[3][3]){
 
     int select = 0;
 
+    ///JUGADORES DE TESTEO
+    stJugador CPU = {0, "CPU", "PC", "email@gmail.com", "1234", 'X', 1, 0};
     stJugador Player1 = {1, "Gonzalo", "Gallego", "email@gmail.com", "0122", 'G', 1, 1};
     stJugador Player2 = {2, "Romina", "Gimenez", "email@gmail.com", "1234", 'R', 1, 0};
-    stJugador CPU = {0, "CPU", "PC", "email@gmail.com", "1234", 'X', 1, 0};
+    ///
 
-    select = seleccionModo();
+    while(select != 3){
+        select = seleccionModo();
+        switch(select){
+            case 1: {
+                mostrarTablero(tablero);
+                modoDeJuego(Player1, Player2, tablero, 0);
+                resetApp();
+            break;}
+            case 2: {
+                mostrarTablero(tablero);
+                modoDeJuego(Player1, Player2, tablero, -1);
+                resetApp();
+            break;}
+            case 3: {
+                menuPrincipal(0);
+            break;}
+        }
+    }
 
-    mostrarTablero(tablero);
-    if(select == 1){ modoDeJuego(Player1, Player2, tablero, 0); }
-    else { modoDeJuego(Player1, Player2, tablero, -1); }
-    resetApp();
-
+    //if(select == 1){ modoDeJuego(Player1, Player2, tablero, 0); }
+    //else { modoDeJuego(Player1, Player2, tablero, -1); }
 }
+
 
 void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int isCPU){
     int tTotal = 0, vic = 0, turno = 1;
