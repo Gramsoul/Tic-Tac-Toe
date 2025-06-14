@@ -26,6 +26,7 @@ int seleccionModo(){
     return select;
 }
 
+<<<<<<< HEAD
 void menuLogin(/* params */) {
     system("cls");
     char menu[][30] = {
@@ -89,10 +90,18 @@ int menuIniciarSesion(/* params */) {
 }
 
 void resetApp(){
+=======
+void resetApp(char tablero[3][3]){
+>>>>>>> d8c5c6b3bea66d32c892c5a86c737ee847dc759a
     char select = 0;
     printf("\nRESET? ESC para volver al menu.\n");
     select = getch();
-    if(select != 27){ menuBasico(); }
+    if(select != 27){
+        rellenarTablero(tablero);
+        //MODODEJUEGO(PLAYER ACTUAL, PLAYER2 ACTUAL).
+    } else {
+        //seleccionModo();
+    }
 }
 
 void menuPrincipal(int isAdmin){

@@ -18,6 +18,7 @@ void passwordCorrect(stJugador *player);
 void emailValido(stJugador *player);
 stJugador crearJugador(int cant_id);
 void deshabilitarID(stJugador data);
+void mostrarJugadorAdmin(stJugador data);
 
 
 #endif // JUGADOR_H_INCLUDED

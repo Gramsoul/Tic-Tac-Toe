@@ -4,7 +4,7 @@
 #include "Jugador.h"
 
 
-void cargaDataBase();
+void cargaDataBase(stJugador data_players_arr[], int *data_players_val);
 void finalizarApp(stJugador arr[], int val_arr);
 
 
