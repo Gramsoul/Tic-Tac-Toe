@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+#include <ctype.h>
 #include "Jugador.h"
 #include "controlDatos.h"
 #include "login.h"
@@ -29,8 +30,14 @@ void mostrarArrJugadores(stJugador arr[], int v){
         if(arr[i].cuentaActiva) { mostrarJugador(arr[i]); }
     }
 }
+void mostrarArrJugadoresAdmin(stJugador arr[], int v){
+    for(int i=0; i<v; i++){
+        if(arr[i].cuentaActiva) { mostrarJugadorAdmin(arr[i]); }
+    }
+}
 
 stJugador crearJugador(int cant_id){
+    system("cls");
     stJugador player;
 
     fflush(stdin);
@@ -43,9 +50,12 @@ stJugador crearJugador(int cant_id){
 
     fflush(stdin);
     printf("Figura:\n");
-    player.figura = getch();
+    player.figura = toupper(getch());
 
+    fflush(stdin);
     emailValido(&player);
+
+    fflush(stdin);
     passwordCorrect(&player);
     player.id = cant_id+1;
     player.cuentaActiva = 1;
@@ -55,6 +65,7 @@ stJugador crearJugador(int cant_id){
 
 void emailValido(stJugador *player){
     int flag = 0;
+    printf("Email:\n");
 
     while(!flag){
         char email[40];

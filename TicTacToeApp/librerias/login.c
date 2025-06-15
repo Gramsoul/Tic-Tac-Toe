@@ -41,7 +41,7 @@ stJugador dataLogin(){
     stJugador aux;
     fflush(stdin);
     printf("Email? -> \n");
-    emailValido(aux);
+    emailValido(&aux);
     fflush(stdin);
     printf("Password? -> \n");
     ocultarPassw(aux.contra, sizeof(aux.contra));

@@ -174,18 +174,19 @@
 	"Jugador.h"
 	<stdio.h>
 
-1749935812 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1750002243 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1749935771 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1750002368 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
+	<ctype.h>
 	"Jugador.h"
 	"controlDatos.h"
 	"login.h"
 
-1749335432 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.c
+1750000851 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.c
 	<string.h>
 	<stdio.h>
 	<conio.h>
@@ -193,20 +194,24 @@
 	"Jugador.h"
 	"archivos.h"
 
-1748057048 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.h
+1750000682 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\login.h
 	"Jugador.h"
 
-1749941130 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\menus.c
+1750002219 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
 	<windows.h>
+	"tablero.h"
+	"archivos.h"
 	"menus.h"
 	"controApp.h"
+	"login.h"
 
-1749940679 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\menus.h
+1750001505 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\menus.h
+	"Jugador.h"
 
-1749329432 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controapp.h
+1750001418 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controapp.h
 	"Jugador.h"
 
 1749929938 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\tablero.c
@@ -229,19 +234,20 @@
 1748232731 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\turnos.h
 	"Jugador.h"
 
-1749941255 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\victory.c
+1750000466 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\victory.c
 	"victory.h"
 	<stdlib.h>
+	<stdio.h>
 
 1746915139 d:\proyectos\tic-tac-toe\tictactoeapp\librerias\victory.h
 
-1749331593 source:d:\proyectos\tic-tac-toe\tictactoeapp\main.c
+1750000618 source:d:\proyectos\tic-tac-toe\tictactoeapp\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"librerias/controApp.h"
 
-1749940890 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750001573 source:d:\proyectos\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<windows.h>

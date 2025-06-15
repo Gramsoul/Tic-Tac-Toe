@@ -12,22 +12,22 @@
 
 
 void inicializarApp(){
+    srand(time(NULL));
     stJugador data_players_arr[100];
     int data_players_val = 0;
     char tablero[3][3];
     cargaDataBase(data_players_arr, &data_players_val);
 
     //maximizarConsola();
-    //menuPrincipal(1);
     //login(data_players, vData_players);
 
     rellenarTablero(tablero);
-    controlApp(tablero);
+    controlApp(tablero, data_players_arr, data_players_val);
 
     finalizarApp(data_players_arr, data_players_val);
 }
 
-void controlApp(char tablero[3][3]){
+void controlApp(char tablero[3][3], stJugador data_players[], int data_players_val){
 
     int select = 0;
 
@@ -38,15 +38,17 @@ void controlApp(char tablero[3][3]){
     ///
 
 
-    menuLogin(/* params */); // while flag_resultado == 0 do
+    //menuLogin(data_players, data_players_val); // while flag_resultado == 0 do
 
-    int flag = 0;
-    do {
-        flag = menuLogin(/* params */);
+    int res = 0;
+    while(res != 0) {
+        res = menuLogin(data_players, data_players_val);
+    }
 
-
-    } while(flag == 0);
-
+    /*  res recibe el id del jugador, hay que usar una
+        funcion que busque el jugador en el array por el id
+        y ese jugador es el que se utiliza para modoDeJego()
+    */
     while(select != 3){
         select = seleccionModo();
         switch(select){

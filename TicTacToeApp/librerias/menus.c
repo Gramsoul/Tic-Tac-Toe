@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include "tablero.h"
+#include "archivos.h"
 #include "menus.h"
 #include "controApp.h"
 #include "login.h"
@@ -26,8 +28,7 @@ int seleccionModo(){
     return select;
 }
 
-<<<<<<< HEAD
-void menuLogin(/* params */) {
+int menuLogin(stJugador data_players[], int data_players_val) {
     system("cls");
     char menu[][30] = {
         "Seleccione un menu",
@@ -38,30 +39,39 @@ void menuLogin(/* params */) {
     };
     int v_menu = sizeof(menu)/sizeof(menu[0]);
     menuCentrado(menu, v_menu);
-
     int opcion = 0;
+    int res = 0; //La cree porque usas un int, pero no retornas nada
+
      do {
         scanf("%d", &opcion);
 
         switch(opcion) {
         case 1:
-            menuIniciarSesion(/* params */);
+           // menuIniciarSesion(/* params */);
             break;
-        case 2:
-            menuRegistrarCuenta(/* params */);
-            break;
+        case 2:{    /*Agrege una creacion de jugador, que la guarda
+                    y la retorna para loguearse automaticamnte. */
+
+            stJugador newPlayer = crearJugador(data_players_val);
+            guardarJugador(newPlayer, DATA_JUGADORES);
+
+            res = newPlayer.id;
+            break;}
         case 3:
             centrarMensajeHorizontalmente("Saliendo...");
+            break;
+        case 0:
+            mostrarArrJugadores(data_players, data_players_val);
             break;
         default:
             centrarMensajeHorizontalmente("\nERROR\n");
             break;
         }
-     } while(opcion != 3)
+     } while(opcion != 3);
 
     /*
     do {
-        flag_valido = login(/* params );
+        flag_valido = login();
         if(flag_valido == 0) {
             printf("\Credenciales Incorrectas");
         } else {
@@ -69,6 +79,7 @@ void menuLogin(/* params */) {
         }
     } while(flag_valido == 0);
     */
+    return res;
 }
 
 int menuIniciarSesion(/* params */) {
@@ -76,7 +87,7 @@ int menuIniciarSesion(/* params */) {
     int flag = 0;
 
     while(salir == 0 && flag == 0) {
-        flag = login(/* params */);
+       // flag = login(/* params */);
         if(flag == 0) {
             centrarMensajeHorizontalmente("Credenciales Incorrectas");
             centrarMensajeHorizontalmente("ESC: Salir");
@@ -86,13 +97,11 @@ int menuIniciarSesion(/* params */) {
             }
         }
     }
-
+    return flag;
 }
 
-void resetApp(){
-=======
 void resetApp(char tablero[3][3]){
->>>>>>> d8c5c6b3bea66d32c892c5a86c737ee847dc759a
+//>>>>>>> d8c5c6b3bea66d32c892c5a86c737ee847dc759a // ????
     char select = 0;
     printf("\nRESET? ESC para volver al menu.\n");
     select = getch();

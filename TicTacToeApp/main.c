@@ -7,7 +7,7 @@
 
 int main()
 {
-    srand(time(NULL));
+    //srand(time(NULL));
     inicializarApp();
     return 0;
 }
