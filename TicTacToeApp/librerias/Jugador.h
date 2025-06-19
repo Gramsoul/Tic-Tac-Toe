@@ -20,6 +20,7 @@ stJugador crearJugador(int cant_id);
 void deshabilitarID(stJugador data);
 void mostrarJugadorAdmin(stJugador data);
 void mostrarArrJugadoresAdmin(stJugador arr[], int v);
+stJugador  buscarPlayerLogged(stJugador data_players[], int data_players_val, int id_logged);
 
 
 #endif // JUGADOR_H_INCLUDED

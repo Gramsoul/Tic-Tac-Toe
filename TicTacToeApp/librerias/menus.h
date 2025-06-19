@@ -14,6 +14,7 @@ void menuCentrado(char options[][30], int cantidad);
 void centrarMensajeHorizontalmente(char mensaje[]);
 void resetApp(char tablero[3][3]);
 int menuLogin(stJugador data_players[], int data_players_val);
+int menuIniciarSesion(stJugador data_players[], int data_players_val);
 int seleccionModo();
 int contarPalabra(char arr[][30], int v);
 int dondeEstaY();

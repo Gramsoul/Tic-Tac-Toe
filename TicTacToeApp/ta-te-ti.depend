@@ -364,8 +364,9 @@
 	"controlDatos.h"
 	"archivos.h"
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\archivos.c
+1750287165 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\archivos.c
 	<stdio.h>
+	<stdlib.h>
 	"archivos.h"
 	"Jugador.h"
 
@@ -373,11 +374,12 @@
 	"Jugador.h"
 	<stdio.h>
 
-1749936245 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1750310637 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750314314 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
+	<stdlib.h>
 	<windows.h>
 	"tablero.h"
 	"controApp.h"
@@ -390,37 +392,40 @@
 
 1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\tablero.h
 
-1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controapp.h
+1750314634 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controapp.h
 	"Jugador.h"
 
 1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\victory.h
 
-1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\menus.h
+1750144028 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\menus.h
+	"Jugador.h"
 
 1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\turnos.h
 	"Jugador.h"
 
-1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\login.h
+1750113179 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\login.h
 	"Jugador.h"
 
-1749933529 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controldatos.h
+1750290722 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controldatos.h
 	"Jugador.h"
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controldatos.c
+1750290745 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controldatos.c
 	"Jugador.h"
 	"controlDatos.h"
 	"archivos.h"
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1750311860 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
+	<ctype.h>
 	"Jugador.h"
 	"controlDatos.h"
 	"login.h"
+	"menus.h"
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\login.c
+1750313571 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\login.c
 	<string.h>
 	<stdio.h>
 	<conio.h>
@@ -428,13 +433,17 @@
 	"Jugador.h"
 	"archivos.h"
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\menus.c
+1750314057 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
 	<windows.h>
+	"tablero.h"
+	"archivos.h"
 	"menus.h"
 	"controApp.h"
+	"login.h"
+	"controlDatos.h"
 
 1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\tablero.c
 	"tablero.h"
@@ -451,12 +460,13 @@
 	"Jugador.h"
 	"menus.h"
 
-1749936413 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\victory.c
-	"victory.h"
+1750287362 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\victory.c
 	<stdlib.h>
 	<stdio.h>
+	"victory.h"
+	"menus.h"
 
-1749933529 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\main.c
+1750113179 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

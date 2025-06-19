@@ -11,3 +11,7 @@ void finalizarApp(stJugador arr[], int val_arr){
     guardarArr(arr, val_arr, DATA_JUGADORES);
 }
 
+void limpiarBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}  // Limpia el stdin
+}

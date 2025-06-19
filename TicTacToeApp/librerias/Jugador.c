@@ -6,6 +6,7 @@
 #include "Jugador.h"
 #include "controlDatos.h"
 #include "login.h"
+#include "menus.h"
 
 void mostrarJugador(stJugador data){
     printf("Nombre -> %s %s\n", data.nombre, data.apellido);
@@ -40,22 +41,18 @@ stJugador crearJugador(int cant_id){
     system("cls");
     stJugador player;
 
-    fflush(stdin);
-    printf("Primer nombre:\n");
+    limpiarBuffer();
+    centrarMensajeHorizontalmente("Primer nombre:\n");
     gets(player.nombre);
 
-    fflush(stdin);
-    printf("Apelldo:\n");
+    centrarMensajeHorizontalmente("Apellido:\n");
     gets(player.apellido);
 
-    fflush(stdin);
-    printf("Figura:\n");
-    player.figura = toupper(getch());
+    centrarMensajeHorizontalmente("Figura:\n");
+    //player.figura = toupper(getch());
 
-    fflush(stdin);
     emailValido(&player);
 
-    fflush(stdin);
     passwordCorrect(&player);
     player.id = cant_id+1;
     player.cuentaActiva = 1;
@@ -65,13 +62,14 @@ stJugador crearJugador(int cant_id){
 
 void emailValido(stJugador *player){
     int flag = 0;
-    printf("Email:\n");
+    //printf("Email:\n");
 
     while(!flag){
         char email[40];
         fflush(stdin);
 
-        gets(email);
+        //gets(email);
+        fgets(email, sizeof(email), stdin);
         char *arroba = strchr(email, '@');
         char *punto = strchr(email, '.');
 
@@ -80,7 +78,8 @@ void emailValido(stJugador *player){
             flag = 1;
         }
         else {
-            printf("Email invalido, intente nuevamente..\n");
+            //printf("Email invalido, intente nuevamente..\n");
+            printf("Email:\n");
         }
 
     }
@@ -106,3 +105,19 @@ void passwordCorrect(stJugador *player){
 }
 
 void deshabilitarID(stJugador data){ data.cuentaActiva = 0; }
+
+stJugador buscarPlayerLogged(stJugador data_players[], int data_players_val, int id_logged) {
+    stJugador aux;
+
+    for(int i=0; i<data_players_val; i++) {
+        if(data_players[i].id == id_logged) {
+            aux = data_players[i];
+        }
+    }
+
+    return aux;
+}
+
+
+
+

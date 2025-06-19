@@ -1,6 +1,7 @@
-#include "victory.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "victory.h"
+#include "menus.h"
 
 
 void victoria(int n, char name[]){

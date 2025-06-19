@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <windows.h>
 #include "tablero.h"
 #include "controApp.h"
@@ -19,15 +20,22 @@ void inicializarApp(){
     cargaDataBase(data_players_arr, &data_players_val);
 
     //maximizarConsola();
-    //login(data_players, vData_players);
+    int control = 1;
+    do {
+        control = 1;
+        int id_logged = menuLogin(data_players_arr, data_players_val);
 
-    rellenarTablero(tablero);
-    controlApp(tablero, data_players_arr, data_players_val);
+        if(id_logged != -1) { // id_logged -1 -> opcion 3 = salir
+            rellenarTablero(tablero);
+            controlApp(tablero, data_players_arr, data_players_val, &id_logged, &control);
+            // control = 0 -> salir de la cuenta
+        }
+    } while(control == 0) ;
 
     finalizarApp(data_players_arr, data_players_val);
 }
 
-void controlApp(char tablero[3][3], stJugador data_players[], int data_players_val){
+void controlApp(char tablero[3][3], stJugador data_players[], int data_players_val, int *id_logged, int *control){
 
     int select = 0;
 
@@ -37,34 +45,34 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
     stJugador Player2 = {2, "Romina", "Gimenez", "email@gmail.com", "1234", 'R', 1, 0};
     ///
 
-
-    //menuLogin(data_players, data_players_val); // while flag_resultado == 0 do
-
-    int res = 0;
-    while(res != 0) {
-        res = menuLogin(data_players, data_players_val);
-    }
+    Player1 = buscarPlayerLogged(data_players, data_players_val, *id_logged);
 
     /*  res recibe el id del jugador, hay que usar una
         funcion que busque el jugador en el array por el id
-        y ese jugador es el que se utiliza para modoDeJego()
-    */
+        y ese jugador es el que se utiliza para modoDeJego() */
     while(select != 3){
         select = seleccionModo();
         switch(select){
-            case 1: {
+            case 1:
                 mostrarTablero(tablero);
                 modoDeJuego(Player1, Player2, tablero, 0);
                 resetApp(tablero);
-            break;}
-            case 2: {
+                break;
+            case 2:
                 mostrarTablero(tablero);
                 modoDeJuego(Player1, Player2, tablero, -1);
                 resetApp(tablero);
-            break;}
-            case 3: {
-                menuPrincipal(0);
-            break;}
+                break;
+            case 3:
+                //menuPrincipal(0); No creo que sea necesaria esta pantalla
+                // 3 -> Salir. Volver a llamar inicializar app? O hacer un ciclo mientras op != 4
+                centrarMensajeHorizontalmente("Saliendo...");
+                *control = 0;
+                break;
+            case 4:
+                select = 3;
+                *id_logged = -1;
+                break;
         }
     }
 

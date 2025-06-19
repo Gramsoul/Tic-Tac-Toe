@@ -21,7 +21,7 @@ int login(stJugador data[], int data_v){
 
 
 
-int buscarJugadorLogin(stJugador data[], int vData, stJugador aux){
+int buscarJugadorLogin(stJugador data[], int vData, stJugador aux){ // existe -> 0
     int res = -1, flag = 0, i = 0;
     while(i<vData && !flag){
             if(strcmp(aux.email, data[i].email) == 0){
@@ -40,10 +40,9 @@ int validarPassword(stJugador data, char pass[]){
 stJugador dataLogin(){
     stJugador aux;
     fflush(stdin);
-    printf("Email? -> \n");
     emailValido(&aux);
     fflush(stdin);
-    printf("Password? -> \n");
+    printf("Password: \n");
     ocultarPassw(aux.contra, sizeof(aux.contra));
 
     return aux;
