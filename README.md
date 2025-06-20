@@ -2,6 +2,41 @@
 
 Proyecto final Programacion 1
 
+## TO DO 
+### Alta Prioridad
+1- Opcion para cerrar definitivamente una cuenta
+
+2- Verificar username unico por jugador 
+
+3- Opcion para modificar username 
+
+4- Ver ranking de jugadores ordenados por puntos totales 
+
+5- El jugador tiene que poder ver sus estadísticas: Cantidad y porcentaje de partidas jugadas, ganadas, empate y derrotas
+
+6- Minimo 2 niveles de dificultad para el CPU
+
+### Baja Prioridad
+1- Estructura stPartida que guardará la información de cada partidas
+```
+typedef struct {
+	int idPartida;
+	int dificultad;
+	int esContraCpu;
+} stPartida;
+
+```
+2- Estructura stPartidaXJugador que relactionara entre jugadores y partidas, resultado y puntaje
+```
+typedef struct {
+    int idPartidaJugador;
+    int idPartida;
+    int idJugador;
+    int resultado;       // 0 = pierde, 1 = gana, 2 = empate
+    int puntosJugador;   // 3 = gana, 1 =  empate y 0 = derrota
+} stPartidaXJugador
+```
+
 ## Pasos para empezar
 
 ### 1. **Clonar el repo**
