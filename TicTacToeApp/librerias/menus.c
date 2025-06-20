@@ -36,7 +36,8 @@ int menuLogin(stJugador data_players[], int data_players_val) {
         "",
         "1- Iniciar sesion",
         "2- Registrar una cuenta nueva",
-        "3- Salir"
+        "3- Ver Ranking",
+        "4- Salir"
     };
     int v_menu = sizeof(menu)/sizeof(menu[0]);
     //menuCentrado(menu, v_menu);
@@ -52,18 +53,21 @@ int menuLogin(stJugador data_players[], int data_players_val) {
         case 1:
             res = menuIniciarSesion(data_players, data_players_val);
             break;
-        case 2:    /*Agrege una creacion de jugador, que la guarda y la retorna para loguearse automaticamnte. */
+        case 2: {   /*Agrege una creacion de jugador, que la guarda y la retorna para loguearse automaticamnte. */
             stJugador newPlayer = crearJugador(data_players_val);
             guardarJugador(newPlayer, DATA_JUGADORES);
             res = newPlayer.id;
             break;
-        case 3:
+        }
+        case 3: {
+            mostrarPuntuaciones(data_players, data_players_val);
+            break;
+        }
+        case 4: {
             centrarMensajeHorizontalmente("Saliendo...");
             res = -1;
             break;
-//        case 0:
-//            mostrarArrJugadores(data_players, data_players_val);
-//            break;
+        }
         default:
             centrarMensajeHorizontalmente("\nERROR\n");
             break;

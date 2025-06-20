@@ -26,6 +26,13 @@ void mostrarJugadorAdmin(stJugador data){
     printf("--------------------------------\n");
 }
 
+void mostrarPuntuaciones(stJugador arr[], int val){
+    for(int i=0; i<val; i++){
+        printf("%s %s\n", arr[i].nombre, arr[i].apellido);
+        printf("Puntuacion total -> %c", arr[i].puntuacion);
+    }
+}
+
 void mostrarArrJugadores(stJugador arr[], int v){
     for(int i=0; i<v; i++){
         if(arr[i].cuentaActiva) { mostrarJugador(arr[i]); }
@@ -100,7 +107,7 @@ void passwordCorrect(stJugador *player){
             strcpy(player->contra, aux);
             f = 1;
         }
-        else { printf("Las contraseñas no coinciden, intente nuevamente..\n"); }
+        else { printf("Las contraseï¿½as no coinciden, intente nuevamente..\n"); }
     }
 }
 
