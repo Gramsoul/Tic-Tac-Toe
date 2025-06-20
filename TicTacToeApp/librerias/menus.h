@@ -19,4 +19,13 @@ int seleccionModo();
 int contarPalabra(char arr[][30], int v);
 int dondeEstaY();
 
+void adminBorrarCuenta(stJugador *Admin);
+void menuConfig(stJugador *User);
+int menuConfigUser(stJugador *User);
+void menuConfigAdmin(stJugador *Admin);
+void adminBorrarCuenta(stJugador *Admin);
+void modificarUsuario(stJugador *User);
+void modificarPassword(stJugador *User);
+
+
 #endif // MENUS_H_INCLUDED

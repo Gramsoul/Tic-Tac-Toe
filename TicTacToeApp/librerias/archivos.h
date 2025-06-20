@@ -1,5 +1,6 @@
 #ifndef ARCHIVOS_H_INCLUDED
 #define ARCHIVOS_H_INCLUDED
+
 #define DATA_JUGADORES "data/dataJugadores.dat"
 
 #include "Jugador.h"

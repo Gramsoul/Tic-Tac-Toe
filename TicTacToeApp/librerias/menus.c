@@ -19,7 +19,8 @@ int seleccionModo(){
         " 1 - Jugador vs Jugador",
         " 2 - Jugador vs CPU",
         " 3 - Desloguear",
-        " 4 - Salir"
+        " 4 - Configuracion",
+        " 5 - Salir"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
     menuCentrado(menu, tam_menu);
@@ -53,21 +54,18 @@ int menuLogin(stJugador data_players[], int data_players_val) {
         case 1:
             res = menuIniciarSesion(data_players, data_players_val);
             break;
-        case 2: {   /*Agrege una creacion de jugador, que la guarda y la retorna para loguearse automaticamnte. */
+        case 2:   /*Agrege una creacion de jugador, que la guarda y la retorna para loguearse automaticamnte. */
             stJugador newPlayer = crearJugador(data_players_val);
             guardarJugador(newPlayer, DATA_JUGADORES);
             res = newPlayer.id;
             break;
-        }
-        case 3: {
+        case 3:
             mostrarPuntuaciones(data_players, data_players_val);
             break;
-        }
-        case 4: {
+        case 4:
             centrarMensajeHorizontalmente("Saliendo...");
             res = -1;
             break;
-        }
         default:
             centrarMensajeHorizontalmente("\nERROR\n");
             break;
@@ -107,6 +105,149 @@ void resetApp(char tablero[3][3]){
     }
 }
 
+void menuConfig(stJugador *User){ //Lo mando de puntero porque se necesita para modificar en los otros menus
+    system("cls");
+
+    int isAdmin = User->isAdmin;
+
+    if(isAdmin){
+            menuConfigAdmin(User);
+    }
+    else {
+            menuConfigUser(User);
+    }
+}
+
+int menuConfigUser(stJugador *User) {
+    char menu[][30] = {
+        "Menu de configuracion",
+        " ",
+        " 1 - Modificar nombre y apellido",
+        " 2 - Modificar contrasenia",
+        " 3 - Borrar cuenta definitivamente",
+        " 4 - Volver"
+    };
+    int tam_menu = sizeof(menu)/ sizeof(menu[0]);
+    menuCentrado(menu, tam_menu);
+
+    int select = 0;
+    while(select !=4) {
+        scanf("%d", &select);
+        switch(select) {
+            case 1:
+                modificarUsuario(User);
+                break;
+            case 2:
+                modificarPassword(User);
+                break;
+            case 3:
+                //borrarCuenta(User);
+                break;
+            case 4:
+                //Sale directamente de config
+                break;
+            default:
+                printf("\ERROR: Elegir una opcion valida");
+                break;
+        }
+    }
+}
+
+void menuConfigAdmin(stJugador *Admin) {
+    char menu[][30] = {
+        "Menu de configuracion",
+        " ",
+        " 1 - Modificar nombre y apellido",
+        " 2 - Modificar contrasenia",
+        " 3 - Borrar usuario",
+        " 4 - Dar permisos de admin",
+        " 5 - Volver"
+    };
+    int tam_menu = sizeof(menu)/ sizeof(menu[0]);
+    menuCentrado(menu, tam_menu);
+
+    int select = 0;
+    while(select !=4) {
+        scanf("%d", &select);
+        switch(select) {
+            case 1:
+                modificarUsuario(Admin);
+                break;
+            case 2:
+                modificarPassword(Admin);
+                break;
+            case 3:
+                adminBorrarCuenta(Admin); //dentro deberia recibir el file con users
+                break;
+            case 4:
+                // adminDarPermisos(Admin); //dentro deberia recibir el file con users
+                break;
+            case 5:
+                //Sale directamente de config
+                break;
+            default:
+                printf("\ERROR: Elegir una opcion valida");
+                break;
+        }
+    }
+}
+
+void adminBorrarCuenta(stJugador *Admin) {
+    FILE * original = fopen(DATA_JUGADORES, "rb");
+    FILE * copia = fopen("temp.dat", "wb");
+
+    if(!original || !copia) {
+        perror("ERROR EN adminBorrarCuenta");
+    }
+
+    //Mostrar lista con todos los usuarios, luego, pedir un numero para borrar
+    int id_eliminar;
+    scanf("%d", &id_eliminar);
+
+    stJugador user;
+    int encontrado = 0;
+
+    while(fread(&user, sizeof(stJugador), 1, original)) {
+        if(user.id == id_eliminar) {
+            printf("Usuario con ID %d eliminado.\n", id_eliminar);
+            encontrado = 1;
+        } else {
+            fwrite(&user, sizeof(stJugador), 1, copia);
+        }
+    }
+
+    fclose(original);
+    fclose(copia);
+
+    if(encontrado) {
+        remove(DATA_JUGADORES);
+        rename("temp.dat", DATA_JUGADORES);
+    } else {
+        printf("Usuario con ID %d no encontrado. \n", id_eliminar);
+        remove("temp.dat");
+    }
+}
+/*
+void adminDarPermisos(stJugador *Admin) {
+
+}
+*/
+
+void modificarUsuario(stJugador *User) {
+    system("cls");
+    centrarMensajeHorizontalmente("Primer nombre:\n");
+    fgets(User->nombre, sizeof(User->nombre), stdin);
+
+    centrarMensajeHorizontalmente("Apellido:\n");
+    fgets(User->apellido, sizeof(User->apellido), stdin);
+}
+
+void modificarPassword(stJugador *User) {
+    system("cls");
+    passwordCorrect(User);
+}
+
+///Las funciones de abajo creo que se podrian borrar
 void menuPrincipal(int isAdmin){
     system("cls");
     if(isAdmin){
