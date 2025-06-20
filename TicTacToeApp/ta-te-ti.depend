@@ -376,7 +376,7 @@
 
 1750310637 b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1750314314 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750314623 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<stdlib.h>
@@ -466,9 +466,8 @@
 	"victory.h"
 	"menus.h"
 
-1750113179 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\main.c
+1750454496 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\main.c
 	<stdio.h>
 	<stdlib.h>
-	<time.h>
 	"librerias/controApp.h"
 

@@ -11,7 +11,7 @@
 #include "login.h"
 #include "controlDatos.h"
 
-
+//TEST GH
 void inicializarApp(){
     srand(time(NULL));
     stJugador data_players_arr[100];
