@@ -107,7 +107,7 @@ void passwordCorrect(stJugador *player){
             strcpy(player->contra, aux);
             f = 1;
         }
-        else { printf("Las contrase�as no coinciden, intente nuevamente..\n"); }
+        else { printf("Las contrasenias no coinciden, intente nuevamente..\n"); }
     }
 }
 

@@ -11,7 +11,6 @@
 #include "login.h"
 #include "controlDatos.h"
 
-//TEST GH
 void inicializarApp(){
     srand(time(NULL));
     stJugador data_players_arr[100];
@@ -70,8 +69,14 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
                 *control = 0;
                 break;
             case 4:
+                menuConfig(&Player1);
+                break;
+            case 5:
                 select = 3;
                 *id_logged = -1;
+                break;
+            default:
+                printf("\nERROR: Elegir una opcion valida");
                 break;
         }
     }
