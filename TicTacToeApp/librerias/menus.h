@@ -21,7 +21,7 @@ int dondeEstaY();
 
 void adminBorrarCuenta(stJugador *Admin);
 void menuConfig(stJugador *User);
-int menuConfigUser(stJugador *User);
+void menuConfigUser(stJugador *User);
 void menuConfigAdmin(stJugador *Admin);
 void adminBorrarCuenta(stJugador *Admin);
 void modificarUsuario(stJugador *User);

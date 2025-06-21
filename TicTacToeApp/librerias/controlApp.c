@@ -39,9 +39,42 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
     int select = 0;
 
     ///JUGADORES DE TESTEO
-    stJugador CPU = {0, "CPU", "PC", "email@gmail.com", "1234", 'X', 1, 0};
-    stJugador Player1 = {1, "Gonzalo", "Gallego", "email@gmail.com", "0122", 'G', 1, 1};
-    stJugador Player2 = {2, "Romina", "Gimenez", "email@gmail.com", "1234", 'R', 1, 0};
+    stJugador CPU = {
+        0,
+        "CPU",
+        "TEST",
+        "test@email.com",
+        "0122",
+        'X',
+        0,
+        1,
+        1
+    };
+    stJugador Player1 = {
+        99,
+        "Gonzalo",
+        "Gallego",
+        "email@email.com",
+        "1234",
+        'G',
+        0,
+        1,
+        1
+    };
+    stJugador Player2 = {
+        98,
+        "Romina",
+        "Gimenez",
+        "email@email.com",
+        "1234",
+        'R',
+        0,
+        1,
+        1
+    };
+    data_players[97] = Player1;
+    data_players[98] = Player2;
+    data_players[99] = CPU;
     ///
 
     Player1 = buscarPlayerLogged(data_players, data_players_val, *id_logged);
@@ -59,7 +92,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
                 break;
             case 2:
                 mostrarTablero(tablero);
-                modoDeJuego(Player1, Player2, tablero, -1);
+                modoDeJuego(Player1, CPU, tablero, -1);
                 resetApp(tablero);
                 break;
             case 3:

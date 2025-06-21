@@ -54,11 +54,12 @@ int menuLogin(stJugador data_players[], int data_players_val) {
         case 1:
             res = menuIniciarSesion(data_players, data_players_val);
             break;
-        case 2:   /*Agrege una creacion de jugador, que la guarda y la retorna para loguearse automaticamnte. */
+        case 2:{
             stJugador newPlayer = crearJugador(data_players_val);
             guardarJugador(newPlayer, DATA_JUGADORES);
             res = newPlayer.id;
             break;
+        }
         case 3:
             mostrarPuntuaciones(data_players, data_players_val);
             break;
@@ -118,13 +119,13 @@ void menuConfig(stJugador *User){ //Lo mando de puntero porque se necesita para 
     }
 }
 
-int menuConfigUser(stJugador *User) {
+void menuConfigUser(stJugador *User) {
     char menu[][30] = {
         "Menu de configuracion",
         " ",
-        " 1 - Modificar nombre y apellido",
-        " 2 - Modificar contrasenia",
-        " 3 - Borrar cuenta definitivamente",
+        " 1 - Mod. nombre y apellido",
+        " 2 - Mod. contrasenia",
+        " 3 - Eliminar cuenta",
         " 4 - Volver"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
@@ -157,10 +158,10 @@ void menuConfigAdmin(stJugador *Admin) {
     char menu[][30] = {
         "Menu de configuracion",
         " ",
-        " 1 - Modificar nombre y apellido",
-        " 2 - Modificar contrasenia",
+        " 1 - Mod. nombre y apellido",
+        " 2 - Mod. contrasenia",
         " 3 - Borrar usuario",
-        " 4 - Dar permisos de admin",
+        " 4 - Permisos de admin",
         " 5 - Volver"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
