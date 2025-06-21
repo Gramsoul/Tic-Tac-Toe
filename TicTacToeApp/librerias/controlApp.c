@@ -32,6 +32,10 @@ void inicializarApp(){
     } while(control == 0) ;
 
     finalizarApp(data_players_arr, data_players_val);
+    /*
+    int a = 99, b = 1;
+    rellenarTablero(tablero);
+    controlApp(tablero, data_players_arr, data_players_val, &a, &b); */
 }
 
 void controlApp(char tablero[3][3], stJugador data_players[], int data_players_val, int *id_logged, int *control){
@@ -45,7 +49,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
         "TEST",
         "test@email.com",
         "0122",
-        'X',
+        'O',
         0,
         1,
         1
@@ -56,7 +60,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
         "Gallego",
         "email@email.com",
         "1234",
-        'G',
+        'X',
         0,
         1,
         1
@@ -72,12 +76,9 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
         1,
         1
     };
-    data_players[97] = Player1;
-    data_players[98] = Player2;
-    data_players[99] = CPU;
     ///
 
-    Player1 = buscarPlayerLogged(data_players, data_players_val, *id_logged);
+    //Player1 = buscarPlayerLogged(data_players, data_players_val, *id_logged);
 
     /*  res recibe el id del jugador, hay que usar una
         funcion que busque el jugador en el array por el id
@@ -88,11 +89,13 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
             case 1:
                 mostrarTablero(tablero);
                 modoDeJuego(Player1, Player2, tablero, 0);
+                rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
             case 2:
                 mostrarTablero(tablero);
                 modoDeJuego(Player1, CPU, tablero, -1);
+                rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
             case 3:

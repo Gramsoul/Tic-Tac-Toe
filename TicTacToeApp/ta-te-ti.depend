@@ -552,7 +552,7 @@
 	"login.h"
 	"controlDatos.h"
 
-1750541770 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750544267 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<stdlib.h>
@@ -566,10 +566,10 @@
 	"login.h"
 	"controlDatos.h"
 
-1750541413 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.h
+1750543429 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.h
 	"Jugador.h"
 
-1750465798 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.c
+1750544661 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

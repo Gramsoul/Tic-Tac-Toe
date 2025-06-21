@@ -40,7 +40,7 @@ void buscarPosicion(stJugador jugador, int pos, char tablero[3][3], int isCPU){
 int pedirPosicion(int isCpu, char tablero[3][3], stJugador jugador){
     int f = 0, pos = 0;
 
-    if(isCpu){ pos = difUno(tablero, jugador); }
+    if(isCpu){ pos = difDos(tablero, 'O', 'X'); }
     else {
         char mensaje[] = "Seleccione una posicion desde 1 a 9.";
         centrarMensajeHorizontalmente(mensaje);
@@ -61,16 +61,29 @@ int pedirPosicion(int isCpu, char tablero[3][3], stJugador jugador){
 
 int difUno(){ return rand()% 9+1; }
 
-int difDos(char tablero[3][3], stJugador jugador){
-    int pos = difUno(); //en caso de que falle, tira un random
+int difDos(char tablero[3][3], char figuraPropia, char figuraRival){
+
+    int pos = buscarDosIguales(tablero, figuraPropia);
+    if(pos == -1){ pos = buscarDosIguales(tablero, figuraRival); }
+    if(pos == -1){
+        if(tablero[1][1] == ' '){ pos = 5; } //en caso de que falle, tira un random
+        else{ pos = difUno(); }
+    }
+
+    return pos;
+}
+
+int buscarDosIguales(char tablero[3][3], char figura){
+    int pos = -1;
+    int vacio, iguales;
 
     //FILAS
-    for(int i=0; i<3; i++){
-        int vacio = -1;
-        int iguales = 0;
+    for(int i=0; i<3 && pos == -1; i++){
+        vacio = -1;
+        iguales = 0;
 
         for(int j=0; j<3; j++){
-            if(tablero[i][j] == jugador.figura)
+            if(tablero[i][j] == figura)
                 iguales++;
             else if(tablero[i][j] == ' ')
                 vacio = j;
@@ -79,15 +92,14 @@ int difDos(char tablero[3][3], stJugador jugador){
         if(iguales == 2 && vacio != -1){
             pos = (i*3) + vacio + 1; //cambia las coordenadas [i][j] a 1-9
         }
-    } 
+    }
 
     //COLUMNAS
-    for(int i=0; i<3; i++){
-        int vacio = -1;
-        int iguales = 0;
-
+    for(int i=0; i<3 && pos == -1; i++){
+        vacio = -1;
+        iguales = 0;
         for(int j=0; j<3; j++){
-            if(tablero[j][i] == jugador.figura)
+            if(tablero[j][i] == figura)
                 iguales++;
             else if(tablero[j][i] == ' ')
                 vacio = j;
@@ -95,32 +107,37 @@ int difDos(char tablero[3][3], stJugador jugador){
 
         if(iguales == 2 && vacio != -1)
             pos = (vacio * 3) + i + 1; //cambia las coordenadas [i][j] a 1-9
-    } 
+    }
 
     //DIAGONAL PRINCIPAL
-    int vacio = -1, iguales = 0;
-    for(int i=0; i<3; i++){
-        if(tablero[i][i] == jugador.figura){
-            iguales++;
-        }else if(tablero[i][i] == ' '){
-            vacio = i;
+    if(pos == -1){
+        vacio = -1;
+        iguales = 0;
+        for(int i=0; i<3; i++){
+            if(tablero[i][i] == figura){
+                iguales++;
+            }else if(tablero[i][i] == ' '){
+                vacio = i;
+            }
         }
-    }
 
-    if(iguales == 2 && vacio != -1)
-        pos = vacio*3 + vacio + 1;
+        if(iguales == 2 && vacio != -1)
+            pos = vacio*3 + vacio + 1; //cambia las coordenadas [i][j] a 1-9
+    }
 
     //DIAGONAL SECUNDARIA
-    vacio = -1; iguales = 0;
-    for(int i=0; i<3; i++){
-        if(tablero[i][2-i] == jugador.figura){
-            iguales++;
-        }else if(tablero[i][2-i] == ' ')
-            vacio = i;
-    }
+    if(pos == -1){
+        vacio = -1; iguales = 0;
+        for(int i=0; i<3; i++){
+            if(tablero[i][2-i] == figura){
+                iguales++;
+            }else if(tablero[i][2-i] == ' ')
+                vacio = i;
+        }
 
-    if(iguales == 2 && vacio != -1)
-        pos = (vacio * 3) + (2 - vacio) + 1;
+        if(iguales == 2 && vacio != -1)
+            pos = (vacio * 3) + (2 - vacio) + 1; //cambia las coordenadas [i][j] a 1-9
+    }
 
     return pos;
 }
