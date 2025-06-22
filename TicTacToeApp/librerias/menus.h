@@ -4,7 +4,6 @@
 #include "Jugador.h"
 
 void maximizarConsola();
-void resetApp();
 void gotoxy(int x, int y);
 void obtenerTamConsola(int *ancho, int *alto);
 void menuPrincipal(int isAdmin);
@@ -19,7 +18,6 @@ int seleccionModo();
 int contarPalabra(char arr[][30], int v);
 int dondeEstaY();
 
-void adminBorrarCuenta(stJugador *Admin);
 void menuConfig(stJugador *User);
 void menuConfigUser(stJugador *User);
 void menuConfigAdmin(stJugador *Admin);

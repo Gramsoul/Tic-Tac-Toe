@@ -8,50 +8,47 @@
 
 
 
-void turnoJugador(stJugador jugador, int pos, char tablero[3][3]){
+void turnoJugador(int pos, char tablero[3][3], int turno){
     int isCPU = 0;
-///Cuan agrege ID a los player, en lugar de pos -1, poner que si el id es 00 es CPU
+
     if(pos == -1) {
         isCPU = 1;
-        pos = pedirPosicion(isCPU, tablero, jugador);
-    } else { pos = pedirPosicion(isCPU, tablero, jugador); }
+        pos = pedirPosicion(isCPU, tablero);
+    } else { pos = pedirPosicion(isCPU, tablero); }
 
-    buscarPosicion(jugador, pos, tablero, isCPU);
+    buscarPosicion(pos, tablero, isCPU, turno);
 
 }
 
-void buscarPosicion(stJugador jugador, int pos, char tablero[3][3], int isCPU){
+
+void buscarPosicion(int pos, char tablero[3][3], int isCPU, int turno){
     int f = 0;
+    char figura = figuraActual(turno);
 
     while(!f){
         int fila    = (pos - 1) /3;
         int columna = (pos - 1) %3;
 
         if(tablero[fila][columna] == ' '){
-            tablero[fila][columna] = jugador.figura;
+            tablero[fila][columna] = figura;
             f = 1;
         }
         else {
-            pos = pedirPosicion(isCPU, tablero, jugador);
+            pos = pedirPosicion(isCPU, tablero);
         }
     }
 }
 
-int pedirPosicion(int isCpu, char tablero[3][3], stJugador jugador){
+int pedirPosicion(int isCpu, char tablero[3][3]){
     int f = 0, pos = 0;
 
     if(isCpu){ pos = difDos(tablero, 'O', 'X'); }
-    else {
-        char mensaje[] = "Seleccione una posicion desde 1 a 9.";
-        centrarMensajeHorizontalmente(mensaje);
+    else { centrarMensajeHorizontalmente("Seleccione una posicion desde 1 a 9.");
         while(!f){
             scanf("%d", &pos);
             if(pos > 0 && pos < 10){
                 f = 1;
-            } else {
-                char selIn[] = "Seleccion incorrecta ingrese entre 1-9..";
-                centrarMensajeHorizontalmente(selIn);
-            }
+            } else { centrarMensajeHorizontalmente("Seleccion incorrecta ingrese entre 1-9.."); }
         }
 
     }

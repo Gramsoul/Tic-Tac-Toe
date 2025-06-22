@@ -18,10 +18,11 @@ void inicializarApp(){
     char tablero[3][3];
     cargaDataBase(data_players_arr, &data_players_val);
 
-    //maximizarConsola();
+    //maximizarConsola(); hay resoluciones en donde anda mal.
+
     int control = 1;
     do {
-        control = 1;
+        control = 1; // ???
         int id_logged = menuLogin(data_players_arr, data_players_val);
 
         if(id_logged != -1) { // id_logged -1 -> opcion 3 = salir
@@ -32,10 +33,10 @@ void inicializarApp(){
     } while(control == 0) ;
 
     finalizarApp(data_players_arr, data_players_val);
-    /*
-    int a = 99, b = 1;
-    rellenarTablero(tablero);
-    controlApp(tablero, data_players_arr, data_players_val, &a, &b); */
+    // TESTEO
+    //int a = 99, b = 1;
+    //rellenarTablero(tablero);
+    //controlApp(tablero, data_players_arr, data_players_val, &a, &b);
 }
 
 void controlApp(char tablero[3][3], stJugador data_players[], int data_players_val, int *id_logged, int *control){
@@ -49,7 +50,6 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
         "TEST",
         "test@email.com",
         "0122",
-        'O',
         0,
         1,
         1
@@ -60,7 +60,6 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
         "Gallego",
         "email@email.com",
         "1234",
-        'X',
         0,
         1,
         1
@@ -71,7 +70,6 @@ void controlApp(char tablero[3][3], stJugador data_players[], int data_players_v
         "Gimenez",
         "email@email.com",
         "1234",
-        'R',
         0,
         1,
         1
@@ -124,17 +122,21 @@ void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int i
     int tTotal = 0, vic = 0, turno = 1;
 
     while(tTotal < 9 && !vic){
-        if(turno){ accionesPorTurno(player1, tablero, &vic, 0); }
-        else{ accionesPorTurno(player2, tablero, &vic, isCPU); }
+        if(turno){ accionesPorTurno(player1, tablero, &vic, 0, turno); }
+        else{ accionesPorTurno(player2, tablero, &vic, isCPU, turno); }
         tTotal++;
         turno = 1 - turno;
     }
-    if(!vic) { centrarMensajeHorizontalmente("Victoria!."); }
+    if(!vic) { centrarMensajeHorizontalmente("Empate!."); }
 }
 
-void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU){
-    turnoJugador(player, isCPU, tablero);
+void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU, int turno){
+    char figura = figuraActual(turno);
+    turnoJugador(isCPU, tablero, turno);
     mostrarTablero(tablero);
-    *vic = checkVictory(tablero, player.figura);
+    *vic = checkVictory(tablero, figura);
     victoria(*vic, player.nombre);
 }
+
+char figuraActual(int turno){ return (turno == 1)? 'X': 'O'; }
+

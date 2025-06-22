@@ -41,7 +41,6 @@ int menuLogin(stJugador data_players[], int data_players_val) {
         "4- Salir"
     };
     int v_menu = sizeof(menu)/sizeof(menu[0]);
-    //menuCentrado(menu, v_menu);
     int opcion = 0;
     int res = 0;
 
@@ -67,6 +66,10 @@ int menuLogin(stJugador data_players[], int data_players_val) {
             centrarMensajeHorizontalmente("Saliendo...");
             res = -1;
             break;
+        case 0:{
+            menuAdmin();
+        break;
+        }
         default:
             centrarMensajeHorizontalmente("\nERROR\n");
             break;
@@ -94,9 +97,8 @@ int menuIniciarSesion(stJugador data_players[], int data_players_val) {
 }
 
 void resetApp(char tablero[3][3]){
-//>>>>>>> d8c5c6b3bea66d32c892c5a86c737ee847dc759a // ???? // ????
     char select = 0;
-    printf("\nRESET? ESC para volver al menu.\n");
+    centrarMensajeHorizontalmente("RESET?. ESC para volver al menu.");
     select = getch();
     if(select != 27){
         rellenarTablero(tablero);

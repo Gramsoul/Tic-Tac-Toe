@@ -10,7 +10,6 @@ void cargarArchivo(const char name[]){
         while(fread(&aux, sizeof(stJugador), 1, file) > 0){
             printf("nombre: %s %s\n", aux.nombre, aux.apellido);
             printf("email: %s\n", aux.email);
-            printf("figura: %c\n", aux.figura);
             printf("pass: %s\n", aux.contra);
             printf("ID: %d\n", aux.id);
             printf("-----------------------------------\n");

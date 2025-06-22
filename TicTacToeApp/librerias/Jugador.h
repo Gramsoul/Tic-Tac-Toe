@@ -7,7 +7,6 @@ typedef struct{
     char apellido[20];
     char email[40];
     char contra[50];
-    char figura;
     int puntuacion;
     int cuentaActiva;
     int isAdmin;

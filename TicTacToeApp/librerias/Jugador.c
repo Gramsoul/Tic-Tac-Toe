@@ -11,7 +11,6 @@
 void mostrarJugador(stJugador data){
     printf("Nombre -> %s %s\n", data.nombre, data.apellido);
     printf("Email -> %s\n", data.email);
-    printf("Figura -> %c\n", data.figura);
     printf("--------------------------------\n");
 }
 
@@ -19,7 +18,6 @@ void mostrarJugadorAdmin(stJugador data){
     printf("Nombre -> %s %s\n", data.nombre, data.apellido);
     printf("Email -> %s\n", data.email);
     printf("pass -> %s\n", data.contra);
-    printf("Figura -> %c\n", data.figura);
     printf("ID -> %d\n", data.id);
     printf("Cuenta activa -> %d\n", data.cuentaActiva);
     printf("Admin -> %d\n", data.isAdmin);
@@ -54,9 +52,6 @@ stJugador crearJugador(int cant_id){
 
     centrarMensajeHorizontalmente("Apellido:\n");
     gets(player.apellido);
-
-    centrarMensajeHorizontalmente("Figura:\n");
-    //player.figura = toupper(getch());
 
     emailValido(&player);
 
