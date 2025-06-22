@@ -66,6 +66,8 @@ int cantEntidades(char name[], size_t tam){
     return size;
 }
 
-void guardarNuevoJugadorArr(stJugador data[], int *val_data, stJugador newJugador){
-    data[*val_data++] = newJugador;
+void guardarNuevoJugadorArr(stJugador data[], int *val_data, stJugador *nuevoJugador){
+    *nuevoJugador = crearJugador(*val_data);
+    data[*val_data] = *nuevoJugador;
+    (*val_data)++;
 }

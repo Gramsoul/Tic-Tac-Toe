@@ -27,19 +27,19 @@ void inicializarApp(){
 
         if(id_logged != -1) { // id_logged -1 -> opcion 3 = salir
             rellenarTablero(tablero);
-            controlApp(tablero, data_players_arr, data_players_val, &id_logged, &control);
+            controlApp(tablero, data_players_arr, &data_players_val, &id_logged, &control);
             // control = 0 -> salir de la cuenta
         }
     } while(control == 0) ;
 
-    finalizarApp(data_players_arr, data_players_val);
+    //finalizarApp(data_players_arr, data_players_val);
     // TESTEO
     //int a = 99, b = 1;
     //rellenarTablero(tablero);
     //controlApp(tablero, data_players_arr, data_players_val, &a, &b);
 }
 
-void controlApp(char tablero[3][3], stJugador data_players[], int data_players_val, int *id_logged, int *control){
+void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_val, int *id_logged, int *control){
 
     int select = 0;
 

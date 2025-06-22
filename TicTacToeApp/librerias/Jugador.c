@@ -18,6 +18,7 @@ void mostrarJugadorAdmin(stJugador data){
     printf("Nombre -> %s %s\n", data.nombre, data.apellido);
     printf("Email -> %s\n", data.email);
     printf("pass -> %s\n", data.contra);
+    printf("puntuacion -> %c\n", data.puntuacion);
     printf("ID -> %d\n", data.id);
     printf("Cuenta activa -> %d\n", data.cuentaActiva);
     printf("Admin -> %d\n", data.isAdmin);
@@ -28,7 +29,15 @@ void mostrarPuntuaciones(stJugador arr[], int val){
     for(int i=0; i<val; i++){
         printf("%s %s\n", arr[i].nombre, arr[i].apellido);
         printf("Puntuacion total -> %d\n", arr[i].puntuacion);
-        printf("--------------------------");
+        printf("--------------------------\n");
+    }
+}
+void mostrarPuntuacionesAdm(stJugador arr[], int val){
+    for(int i=0; i<val; i++){
+        printf("%s %s\n", arr[i].nombre, arr[i].apellido);
+        printf("Puntuacion total -> %d\n", arr[i].puntuacion);
+        printf("ID -> %d\n", arr[i].id);
+        printf("--------------------------\n");
     }
 }
 
@@ -46,47 +55,50 @@ void mostrarArrJugadoresAdmin(stJugador arr[], int v){
 stJugador crearJugador(int cant_id){
     system("cls");
     stJugador player;
-
     limpiarBuffer();
+
     centrarMensajeHorizontalmente("Primer nombre: ");
-    gets(player.nombre);
+    fgets(player.nombre, sizeof(player.nombre), stdin);
+    player.nombre[strcspn(player.nombre, "\n")] = 0;   /// quitar '\n'
 
     centrarMensajeHorizontalmente("Apellido: ");
-    gets(player.apellido);
+    fgets(player.apellido, sizeof(player.apellido), stdin);
+    player.apellido[strcspn(player.apellido, "\n")] = 0;
 
-    centrarMensajeHorizontalmente("Email: ");
     emailValido(&player);
 
     passwordCorrect(&player);
     player.id = cant_id+1;
     player.puntuacion = 0;
     player.cuentaActiva = 1;
+    player.isAdmin = 0;
 
     return player;
 }
 
-void emailValido(stJugador *player){
+void emailValido(stJugador *player) {
     int flag = 0;
 
-    while(!flag){
+    while (!flag) {
         char email[40];
-        fflush(stdin);
+        centrarMensajeHorizontalmente("Email:");
 
         fgets(email, sizeof(email), stdin);
+        email[strcspn(email, "\n")] = 0;  // elimina el \n al final
         toUpperString(email);
+
         char *arroba = strchr(email, '@');
         char *punto = strchr(email, '.');
 
-        if(arroba && punto && punto > arroba){
+        if (arroba && punto && punto > arroba) {
             strcpy(player->email, email);
             flag = 1;
+        } else {
+            centrarMensajeHorizontalmente("Email inválido, intente nuevamente...");
         }
-        else {
-            centrarMensajeHorizontalmente("Email:");
-        }
-
     }
 }
+
 void toUpperString(char *str){
     for(int i=0; str[i] != '\0'; i++){
         str[i] = toupper(str[i]);
@@ -125,6 +137,19 @@ stJugador buscarPlayerLogged(stJugador data_players[], int data_players_val, int
     return aux;
 }
 
+void modificarPuntuacion(stJugador data[], int pos, int nuevaPuntuacion){
+    data[pos].puntuacion = nuevaPuntuacion;
+}
 
-
+int buscarIDArr(stJugador data[], int data_val, int id){
+    int pos;
+    for(int i=0; i<data_val; i++){
+        if(data[i].id == id){
+            pos = i;
+        }else{
+        printf("\nID NO ENCONTRADO\n");
+        }
+    }
+    return pos;
+}
 

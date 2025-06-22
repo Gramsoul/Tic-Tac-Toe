@@ -23,6 +23,9 @@ void mostrarArrJugadoresAdmin(stJugador arr[], int v);
 stJugador buscarPlayerLogged(stJugador data_players[], int data_players_val, int id_logged);
 void mostrarPuntuaciones(stJugador arr[], int val);
 void toUpperString(char *str);
+void modificarPuntuacion(stJugador data[], int id,int nuevaPuntuacion);
+void mostrarPuntuacionesAdm(stJugador arr[], int val);
+int buscarIDArr(stJugador data[], int data_val, int id);
 
 
 #endif // JUGADOR_H_INCLUDED

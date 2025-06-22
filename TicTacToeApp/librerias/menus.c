@@ -54,9 +54,12 @@ int menuLogin(stJugador data_players[], int data_players_val) {
             res = menuIniciarSesion(data_players, data_players_val);
             break;
         case 2:{
-            stJugador newPlayer = crearJugador(data_players_val);
-            guardarNuevoJugadorArr(data_players, &data_players_val, newPlayer);
-            res = newPlayer.id;
+            stJugador nuevoJugador;
+            guardarNuevoJugadorArr(data_players, &data_players_val, &nuevoJugador);
+            //mostrarArrJugadoresAdmin(data_players, data_players_val);
+            //system("pause");
+            //res = nuevoJugador.id;
+            menuLogin(data_players, data_players_val);
             break;
         }
         case 3:
@@ -66,6 +69,7 @@ int menuLogin(stJugador data_players[], int data_players_val) {
             break;
         case 4:
             centrarMensajeHorizontalmente("Saliendo...");
+            finalizarApp(data_players, data_players_val);
             Sleep(500);
             res = -1;
             break;
@@ -267,40 +271,58 @@ void menuAdmin(stJugador data[], int val){
         "1 - Ver usuarios",
         "2 - Ver Archivo",
         "3 - Forzar Jugador",
-        "4 - Volver",
+        "4 - Modificar puntaje",
+        "0 - Volver",
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
     menuCentrado(menu, tam_menu);
 
     while(!f){
-        char select = 0;
-        fflush(stdin);
-        scanf("%c", &select);
+        int select = 0;
+        scanf("%d", &select);
 
         switch(select){
-            case '4':{
+            case 0:{
                 f = 1;
             break;
             }
-            case '1':{
+            case 1:{
                 system("cls");
                 mostrarArrJugadoresAdmin(data, val);
                 system("pause");
                 menuAdmin(data, val);
             break;
             }
-            case '2':{
+            case 2:{
                 system("cls");
                 cargarArchivo();
                 system("pause");
                 menuAdmin(data, val);
             break;
             }
-            case '3':{
+            case 3:{
                 stJugador aux = crearJugador(val);
                 guardarJugador(aux, DATA_JUGADORES);
                 centrarMensajeHorizontalmente(" ");
                 centrarMensajeHorizontalmente("Guardando jugador..");
+                Sleep(700);
+                system("cls");
+                menuAdmin(data, val);
+            break;
+            }
+            case 4:{
+                int id, pos, newpun;
+                mostrarPuntuacionesAdm(data, val);
+                system("pause");
+                centrarMensajeHorizontalmente("ID a buscar.");
+                scanf("%d", &id);
+                pos = buscarIDArr(data, val, id);
+                printf("Nueva puntuacion: \n");
+                scanf("%d", &newpun);
+                modificarPuntuacion(data, pos, newpun);
+                centrarMensajeHorizontalmente(" ");
+                centrarMensajeHorizontalmente("Modificando puntaje..");
+
                 Sleep(700);
                 system("cls");
                 menuAdmin(data, val);
