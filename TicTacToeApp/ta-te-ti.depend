@@ -499,7 +499,7 @@
 
 1750370280 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\tablero.h
 
-1750605356 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.h
+1750608100 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.h
 	"Jugador.h"
 
 1750370280 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.c
@@ -540,7 +540,7 @@
 	"Jugador.h"
 	"archivos.h"
 
-1750541371 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.c
+1750607995 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -552,7 +552,7 @@
 	"login.h"
 	"controlDatos.h"
 
-1750605839 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750606312 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<stdlib.h>

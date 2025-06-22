@@ -67,7 +67,7 @@ int menuLogin(stJugador data_players[], int data_players_val) {
             res = -1;
             break;
         case 0:{
-            menuAdmin();
+            menuAdmin(data_players, data_players_val);
         break;
         }
         default:
@@ -250,72 +250,19 @@ void modificarPassword(stJugador *User) {
     passwordCorrect(User);
 }
 
-///Las funciones de abajo creo que se podrian borrar
-void menuPrincipal(int isAdmin){
-    system("cls");
-    if(isAdmin){
-            menuAdmin();
-    }
-    else {
-            menuBasico();
-    }
+///Tomas: Las funciones de abajo creo que se podrian borrar
+///Gonzalo: menuAdmin lo voy a dejar para nosotros. se abre en el primer menu con '0' <- CERO.
+///Gonzalo: y maximizar consola, nose, por las dudas la dejo.
 
-    //Modificar para que esta fn muestre login/register
-    //y dependiendo si es admin o no, llamar a las otras fn.
-}
-
-void menuBasico(){
-    system("cls");
-    int f = 0;
-    char menu[][30] = {
-        "Seleccionar opcion:",
-        " ",
-        "  1 - Ingresar 1",
-        "  2 - menu 2",
-        "  3 - Salir",
-    };
-
-    int tam_menu = sizeof(menu)/ sizeof(menu[0]);
-    menuCentrado(menu, tam_menu);
-
-    while(!f){
-        char select = 0;
-        fflush(stdin);
-        select = getch();
-
-        switch(select){
-            case '1':{
-                system("cls");
-                printf("Menu 1..\n");
-            break;
-            }
-            case '2':{
-                system("cls");
-                printf("Menu 2..\n");
-            break;
-            }
-            case '3':{
-                system("cls");
-                printf("Menu 3..\n");
-                f = 1;
-            break;
-            }
-        }
-    }
-
-}
-
-void menuAdmin(){
+void menuAdmin(stJugador data[], int val){
     system("cls");
     int f = 0;
 
     char menu[][30] = {
         "Menu de Administrador",
         " ",
-        "1 - Config 1",
-        "2 - Config 2",
-        "3 - Config 3",
-        "4 - Salir",
+        "1 - Ver usuarios",
+        "2 - Volver",
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
     menuCentrado(menu, tam_menu);
@@ -328,17 +275,21 @@ void menuAdmin(){
         switch(select){
             case '1':{
                 system("cls");
-                printf("Menu 1..\n");
+                mostrarArrJugadoresAdmin(data, val);
+                system("pause");
+                menuAdmin(data, val);
             break;
             }
             case '2':{
-                system("cls");
-                printf("Menu 2..\n");
+                f = 1;
             break;
             }
-            case '4':{
+            default:{
+                centrarMensajeHorizontalmente(" ");
+                centrarMensajeHorizontalmente("Opcion incorrecta");
+                Sleep(1000);
                 system("cls");
-                f = 1;
+                menuCentrado(menu, tam_menu);
             break;
             }
         }
