@@ -55,19 +55,22 @@ int menuLogin(stJugador data_players[], int data_players_val) {
             break;
         case 2:{
             stJugador newPlayer = crearJugador(data_players_val);
-            guardarJugador(newPlayer, DATA_JUGADORES);
+            guardarNuevoJugadorArr(data_players, &data_players_val, newPlayer);
             res = newPlayer.id;
             break;
         }
         case 3:
+            system("cls");
             mostrarPuntuaciones(data_players, data_players_val);
+            system("pause");
             break;
         case 4:
             centrarMensajeHorizontalmente("Saliendo...");
+            Sleep(500);
             res = -1;
             break;
         case 0:{
-            menuAdmin(data_players, data_players_val);
+            menuAdmin(data_players, data_players_val); //MENU DE ADMINISTRACION
         break;
         }
         default:
@@ -262,7 +265,9 @@ void menuAdmin(stJugador data[], int val){
         "Menu de Administrador",
         " ",
         "1 - Ver usuarios",
-        "2 - Volver",
+        "2 - Ver Archivo",
+        "3 - Forzar Jugador",
+        "4 - Volver",
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
     menuCentrado(menu, tam_menu);
@@ -270,9 +275,13 @@ void menuAdmin(stJugador data[], int val){
     while(!f){
         char select = 0;
         fflush(stdin);
-        select = getch();
+        scanf("%c", &select);
 
         switch(select){
+            case '4':{
+                f = 1;
+            break;
+            }
             case '1':{
                 system("cls");
                 mostrarArrJugadoresAdmin(data, val);
@@ -281,7 +290,20 @@ void menuAdmin(stJugador data[], int val){
             break;
             }
             case '2':{
-                f = 1;
+                system("cls");
+                cargarArchivo();
+                system("pause");
+                menuAdmin(data, val);
+            break;
+            }
+            case '3':{
+                stJugador aux = crearJugador(val);
+                guardarJugador(aux, DATA_JUGADORES);
+                centrarMensajeHorizontalmente(" ");
+                centrarMensajeHorizontalmente("Guardando jugador..");
+                Sleep(700);
+                system("cls");
+                menuAdmin(data, val);
             break;
             }
             default:{
@@ -289,7 +311,7 @@ void menuAdmin(stJugador data[], int val){
                 centrarMensajeHorizontalmente("Opcion incorrecta");
                 Sleep(1000);
                 system("cls");
-                menuCentrado(menu, tam_menu);
+                menuAdmin(data, val);
             break;
             }
         }

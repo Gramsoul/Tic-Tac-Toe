@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include "archivos.h"
 #include "Jugador.h"
+#include "menus.h"
 
-void cargarArchivo(const char name[]){
-    FILE *file = fopen(name, "rb");
+void cargarArchivo(){
+    FILE *file = fopen(DATA_JUGADORES, "rb");
     if(file){
         stJugador aux;
         while(fread(&aux, sizeof(stJugador), 1, file) > 0){
@@ -15,7 +16,7 @@ void cargarArchivo(const char name[]){
             printf("-----------------------------------\n");
         }
         fclose(file);
-    } else { printf("ERROR al cargar archivo %s", name); }
+    } else { printf("ERROR al cargar archivo %s", DATA_JUGADORES); }
 }
 
 void cargarArchivoArr(stJugador data[], int *i, const char name[]){
@@ -37,14 +38,17 @@ void guardarJugador(stJugador data, const char name[]){
     }else{ printf("ERROR al guardar jugador\n"); }
 }
 
-void guardarArr(stJugador data[], int v, const char name[]){
-    FILE *file = fopen(name, "wb");
+void guardarArr(stJugador data[], int v){
+    FILE *file = fopen(DATA_JUGADORES, "wb");
     if(file){
         for(int i=0; i<v; i++){
             fwrite(&data[i], sizeof(stJugador), 1, file);
         }
         fclose(file);
-    }else{ printf("ERROR - ARR_PLAYER SIN GUARDAR.\n"); }
+    }else{
+        centrarMensajeHorizontalmente("ERROR - ARR_PLAYER SIN GUARDAR.\n");
+        system("pause");
+    }
 }
 
 int cantEntidades(char name[], size_t tam){
@@ -60,4 +64,8 @@ int cantEntidades(char name[], size_t tam){
     size = max/tam;
 
     return size;
+}
+
+void guardarNuevoJugadorArr(stJugador data[], int *val_data, stJugador newJugador){
+    data[*val_data++] = newJugador;
 }

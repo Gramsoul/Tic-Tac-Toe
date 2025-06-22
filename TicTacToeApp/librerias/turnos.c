@@ -5,6 +5,7 @@
 #include "turnos.h"
 #include "Jugador.h"
 #include "menus.h"
+#include "controApp.h"
 
 
 

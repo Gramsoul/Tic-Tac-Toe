@@ -27,7 +27,8 @@ void mostrarJugadorAdmin(stJugador data){
 void mostrarPuntuaciones(stJugador arr[], int val){
     for(int i=0; i<val; i++){
         printf("%s %s\n", arr[i].nombre, arr[i].apellido);
-        printf("Puntuacion total -> %c", arr[i].puntuacion);
+        printf("Puntuacion total -> %d\n", arr[i].puntuacion);
+        printf("--------------------------");
     }
 }
 
@@ -47,16 +48,18 @@ stJugador crearJugador(int cant_id){
     stJugador player;
 
     limpiarBuffer();
-    centrarMensajeHorizontalmente("Primer nombre:\n");
+    centrarMensajeHorizontalmente("Primer nombre: ");
     gets(player.nombre);
 
-    centrarMensajeHorizontalmente("Apellido:\n");
+    centrarMensajeHorizontalmente("Apellido: ");
     gets(player.apellido);
 
+    centrarMensajeHorizontalmente("Email: ");
     emailValido(&player);
 
     passwordCorrect(&player);
     player.id = cant_id+1;
+    player.puntuacion = 0;
     player.cuentaActiva = 1;
 
     return player;
@@ -64,14 +67,13 @@ stJugador crearJugador(int cant_id){
 
 void emailValido(stJugador *player){
     int flag = 0;
-    //printf("Email:\n");
 
     while(!flag){
         char email[40];
         fflush(stdin);
 
-        //gets(email);
         fgets(email, sizeof(email), stdin);
+        toUpperString(email);
         char *arroba = strchr(email, '@');
         char *punto = strchr(email, '.');
 
@@ -80,13 +82,16 @@ void emailValido(stJugador *player){
             flag = 1;
         }
         else {
-            //printf("Email invalido, intente nuevamente..\n");
-            printf("Email:\n");
+            centrarMensajeHorizontalmente("Email:");
         }
 
     }
 }
-
+void toUpperString(char *str){
+    for(int i=0; str[i] != '\0'; i++){
+        str[i] = toupper(str[i]);
+    }
+}
 void passwordCorrect(stJugador *player){
     int f = 0;
    while(!f){
@@ -106,7 +111,7 @@ void passwordCorrect(stJugador *player){
     }
 }
 
-void deshabilitarID(stJugador data){ data.cuentaActiva = 0; }
+void deshabilitarID(stJugador *data){ data->cuentaActiva = 0; }
 
 stJugador buscarPlayerLogged(stJugador data_players[], int data_players_val, int id_logged) {
     stJugador aux;

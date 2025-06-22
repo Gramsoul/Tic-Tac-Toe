@@ -17,11 +17,12 @@ void mostrarArrJugadores(stJugador arr[], int v);
 void passwordCorrect(stJugador *player);
 void emailValido(stJugador *player);
 stJugador crearJugador(int cant_id);
-void deshabilitarID(stJugador data);
+void deshabilitarID(stJugador *data);
 void mostrarJugadorAdmin(stJugador data);
 void mostrarArrJugadoresAdmin(stJugador arr[], int v);
-stJugador  buscarPlayerLogged(stJugador data_players[], int data_players_val, int id_logged);
+stJugador buscarPlayerLogged(stJugador data_players[], int data_players_val, int id_logged);
 void mostrarPuntuaciones(stJugador arr[], int val);
+void toUpperString(char *str);
 
 
 #endif // JUGADOR_H_INCLUDED

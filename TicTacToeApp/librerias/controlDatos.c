@@ -1,6 +1,8 @@
+#include <windows.h>
 #include "Jugador.h"
 #include "controlDatos.h"
 #include "archivos.h"
+#include "menus.h"
 
 
 void cargaDataBase(stJugador data_players_arr[], int *data_players_val){
@@ -8,7 +10,10 @@ void cargaDataBase(stJugador data_players_arr[], int *data_players_val){
 }
 
 void finalizarApp(stJugador arr[], int val_arr){
-    guardarArr(arr, val_arr, DATA_JUGADORES);
+    guardarArr(arr, val_arr);
+    centrarMensajeHorizontalmente("Guardando archivos..");
+    Sleep(800);
+    system("cls");
 }
 
 void limpiarBuffer() {
