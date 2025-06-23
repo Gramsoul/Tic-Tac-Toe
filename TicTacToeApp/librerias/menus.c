@@ -30,7 +30,8 @@ int seleccionModo(){
     return select;
 }
 
-int menuLogin(stJugador data_players[], int data_players_val) {
+int menuLogin(stJugador data_players[], int *data_players_val_pointer) {
+    int data_players_val = *data_players_val_pointer;
     system("cls");
     char menu[][30] = {
         "Seleccione un menu",
@@ -56,10 +57,10 @@ int menuLogin(stJugador data_players[], int data_players_val) {
         case 2:{
             stJugador nuevoJugador;
             guardarNuevoJugadorArr(data_players, &data_players_val, &nuevoJugador);
-            //mostrarArrJugadoresAdmin(data_players, data_players_val);
-            //system("pause");
-            //res = nuevoJugador.id;
-            menuLogin(data_players, data_players_val);
+            guardarArr(data_players, data_players_val);
+            *data_players_val_pointer = data_players_val;
+            centrarMensajeHorizontalmente("Usuario registrado exitosamente!");
+            Sleep(1000);
             break;
         }
         case 3:
@@ -115,20 +116,20 @@ void resetApp(char tablero[3][3]){
     }
 }
 
-void menuConfig(stJugador *User){ //Lo mando de puntero porque se necesita para modificar en los otros menus
+void menuConfig(stJugador *User, stJugador data_players[], int *data_players_val){ //Lo mando de puntero porque se necesita para modificar en los otros menus
     system("cls");
 
     int isAdmin = User->isAdmin;
 
     if(isAdmin){
-            menuConfigAdmin(User);
+            menuConfigAdmin(User, data_players, data_players_val);
     }
     else {
-            menuConfigUser(User);
+            menuConfigUser(User, data_players, data_players_val);
     }
 }
 
-void menuConfigUser(stJugador *User) {
+void menuConfigUser(stJugador *User, stJugador data_players[], int *data_players_val) {
     char menu[][30] = {
         "Menu de configuracion",
         " ",
@@ -163,7 +164,7 @@ void menuConfigUser(stJugador *User) {
     }
 }
 
-void menuConfigAdmin(stJugador *Admin) {
+void menuConfigAdmin(stJugador *Admin, stJugador data_players[], int *data_players_val) {
     char menu[][30] = {
         "Menu de configuracion",
         " ",
@@ -177,7 +178,7 @@ void menuConfigAdmin(stJugador *Admin) {
     menuCentrado(menu, tam_menu);
 
     int select = 0;
-    while(select !=4) {
+    while(select !=5) {
         scanf("%d", &select);
         switch(select) {
             case 1:
@@ -187,7 +188,7 @@ void menuConfigAdmin(stJugador *Admin) {
                 modificarPassword(Admin);
                 break;
             case 3:
-                adminBorrarCuenta(Admin); //dentro deberia recibir el file con users
+                adminBorrarCuentaArr(data_players, data_players_val);
                 break;
             case 4:
                 // adminDarPermisos(Admin); //dentro deberia recibir el file con users
@@ -208,6 +209,7 @@ void adminBorrarCuenta(stJugador *Admin) {
 
     if(!original || !copia) {
         perror("ERROR EN adminBorrarCuenta");
+        return;
     }
 
     //Mostrar lista con todos los usuarios, luego, pedir un numero para borrar
@@ -232,11 +234,48 @@ void adminBorrarCuenta(stJugador *Admin) {
     if(encontrado) {
         remove(DATA_JUGADORES);
         rename("temp.dat", DATA_JUGADORES);
+        
+        // Recargar el array desde el archivo actualizado
+        // Nota: Esto requeriría pasar el array y contador como parámetros
+        // Por ahora, el array se recargará en la próxima ejecución
+        centrarMensajeHorizontalmente("Usuario eliminado exitosamente!");
+        Sleep(1000);
     } else {
         printf("Usuario con ID %d no encontrado. \n", id_eliminar);
         remove("temp.dat");
+        Sleep(1000);
     }
 }
+
+void adminBorrarCuentaArr(stJugador data_players[], int *data_players_val) {
+    system("cls");
+    centrarMensajeHorizontalmente("Lista de usuarios:");
+    mostrarArrJugadoresAdmin(data_players, *data_players_val);
+    
+    centrarMensajeHorizontalmente("Ingrese el ID del usuario a eliminar:");
+    int id_eliminar;
+    scanf("%d", &id_eliminar);
+    
+    int pos = buscarIDArr(data_players, *data_players_val, id_eliminar);
+    
+    if(pos != -1) {
+        // Eliminar del array
+        for(int i = pos; i < *data_players_val - 1; i++) {
+            data_players[i] = data_players[i + 1];
+        }
+        (*data_players_val)--;
+        
+        // Guardar array actualizado al archivo
+        guardarArr(data_players, *data_players_val);
+        
+        centrarMensajeHorizontalmente("Usuario eliminado exitosamente!");
+        Sleep(1000);
+    } else {
+        centrarMensajeHorizontalmente("Usuario no encontrado!");
+        Sleep(1000);
+    }
+}
+
 /*
 void adminDarPermisos(stJugador *Admin) {
 
@@ -245,11 +284,18 @@ void adminDarPermisos(stJugador *Admin) {
 
 void modificarUsuario(stJugador *User) {
     system("cls");
-    centrarMensajeHorizontalmente("Primer nombre:\n");
+    limpiarBuffer(); // Limpiar buffer antes de fgets
+    
+    centrarMensajeHorizontalmente("Primer nombre:");
     fgets(User->nombre, sizeof(User->nombre), stdin);
+    User->nombre[strcspn(User->nombre, "\n")] = 0; // Eliminar \n
 
-    centrarMensajeHorizontalmente("Apellido:\n");
+    centrarMensajeHorizontalmente("Apellido:");
     fgets(User->apellido, sizeof(User->apellido), stdin);
+    User->apellido[strcspn(User->apellido, "\n")] = 0; // Eliminar \n
+    
+    centrarMensajeHorizontalmente("Datos modificados exitosamente!");
+    Sleep(1000);
 }
 
 void modificarPassword(stJugador *User) {
@@ -280,6 +326,7 @@ void menuAdmin(stJugador data[], int val){
     while(!f){
         int select = 0;
         scanf("%d", &select);
+        limpiarBuffer(); // Limpiar buffer después de scanf
 
         switch(select){
             case 0:{
@@ -316,9 +363,11 @@ void menuAdmin(stJugador data[], int val){
                 system("pause");
                 centrarMensajeHorizontalmente("ID a buscar.");
                 scanf("%d", &id);
+                limpiarBuffer(); // Limpiar buffer después de scanf
                 pos = buscarIDArr(data, val, id);
                 printf("Nueva puntuacion: \n");
                 scanf("%d", &newpun);
+                limpiarBuffer(); // Limpiar buffer después de scanf
                 modificarPuntuacion(data, pos, newpun);
                 centrarMensajeHorizontalmente(" ");
                 centrarMensajeHorizontalmente("Modificando puntaje..");

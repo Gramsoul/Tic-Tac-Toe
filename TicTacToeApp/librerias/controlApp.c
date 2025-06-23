@@ -10,6 +10,7 @@
 #include "turnos.h"
 #include "login.h"
 #include "controlDatos.h"
+#include "archivos.h"
 
 void inicializarApp(){
     srand(time(NULL));
@@ -23,7 +24,7 @@ void inicializarApp(){
     int control = 1;
     do {
         control = 1; // ???
-        int id_logged = menuLogin(data_players_arr, data_players_val);
+        int id_logged = menuLogin(data_players_arr, &data_players_val);
 
         if(id_logged != -1) { // id_logged -1 -> opcion 3 = salir
             rellenarTablero(tablero);
@@ -42,6 +43,7 @@ void inicializarApp(){
 void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_val, int *id_logged, int *control){
 
     int select = 0;
+    int pos; // Variable para buscar posición en array
 
     ///JUGADORES DE TESTEO
     stJugador CPU = {
@@ -54,16 +56,9 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
         1,
         1
     };
-    stJugador Player1 = {
-        99,
-        "Gonzalo",
-        "Gallego",
-        "email@email.com",
-        "1234",
-        0,
-        1,
-        1
-    };
+    
+    // Buscar el jugador logueado en el array
+    stJugador Player1 = buscarPlayerLogged(data_players, *data_players_val, *id_logged);
     stJugador Player2 = {
         98,
         "Romina",
@@ -75,8 +70,6 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
         1
     };
     ///
-
-    //Player1 = buscarPlayerLogged(data_players, data_players_val, *id_logged);
 
     /*  res recibe el id del jugador, hay que usar una
         funcion que busque el jugador en el array por el id
@@ -103,7 +96,13 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
                 *control = 0;
                 break;
             case 4:
-                menuConfig(&Player1);
+                menuConfig(&Player1, data_players, data_players_val);
+                // Actualizar el jugador en el array después de la configuración
+                pos = buscarIDArr(data_players, *data_players_val, *id_logged);
+                if(pos != -1) {
+                    data_players[pos] = Player1;
+                    guardarArr(data_players, *data_players_val);
+                }
                 break;
             case 5:
                 select = 3;

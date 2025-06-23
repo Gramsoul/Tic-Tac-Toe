@@ -23,6 +23,7 @@ int login(stJugador data[], int data_v){
 
 int buscarJugadorLogin(stJugador data[], int vData, stJugador aux){ // existe -> 0
     int res = -1, flag = 0, i = 0;
+    toUpperString(aux.email);
     while(i<vData && !flag){
             if(strcmp(aux.email, data[i].email) == 0){
                 res = validarPassword(data[i], aux.contra);

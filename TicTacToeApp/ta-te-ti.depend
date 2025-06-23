@@ -471,57 +471,57 @@
 	<stdlib.h>
 	"librerias/controApp.h"
 
-1750618317 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\archivos.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\archivos.c
 	<stdio.h>
 	<stdlib.h>
 	"archivos.h"
 	"Jugador.h"
 	"menus.h"
 
-1750616898 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\archivos.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\archivos.h
 	"Jugador.h"
 	<stdio.h>
 
-1750613718 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1750613642 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controldatos.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controldatos.c
 	<windows.h>
 	"Jugador.h"
 	"controlDatos.h"
 	"archivos.h"
 	"menus.h"
 
-1750370280 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controldatos.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controldatos.h
 	"Jugador.h"
 
-1750370280 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\tablero.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\tablero.c
 	"tablero.h"
 	"menus.h"
 	<stdlib.h>
 	<stdio.h>
 
-1750370280 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\tablero.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\tablero.h
 
-1750608467 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.h
+1750714285 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.h
 	"Jugador.h"
 
-1750370280 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.c
 	<stdlib.h>
 	<stdio.h>
 	"victory.h"
 	"menus.h"
 
-1750370280 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.h
 
-1750540213 source:d:\repositorios\tic-tac-toe\tictactoeapp\main.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\main.c
 	<stdio.h>
 	<stdlib.h>
 	"librerias/controApp.h"
 
-1750617552 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controapp.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controapp.h
 	"Jugador.h"
 
-1750618207 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -532,10 +532,10 @@
 	"login.h"
 	"menus.h"
 
-1750370280 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\login.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\login.h
 	"Jugador.h"
 
-1750457389 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\login.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\login.c
 	<string.h>
 	<stdio.h>
 	<conio.h>
@@ -543,7 +543,7 @@
 	"Jugador.h"
 	"archivos.h"
 
-1750618785 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.c
+1750714286 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -555,7 +555,7 @@
 	"login.h"
 	"controlDatos.h"
 
-1750618821 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<stdlib.h>
@@ -569,10 +569,10 @@
 	"login.h"
 	"controlDatos.h"
 
-1750604772 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.h
+1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.h
 	"Jugador.h"
 
-1750608384 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.c
+1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
