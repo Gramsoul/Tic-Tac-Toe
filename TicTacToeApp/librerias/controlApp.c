@@ -56,7 +56,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
         1,
         1
     };
-    
+
     // Buscar el jugador logueado en el array
     stJugador Player1 = buscarPlayerLogged(data_players, *data_players_val, *id_logged);
     stJugador Player2 = {
@@ -79,16 +79,19 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
         switch(select){
             case 1:
                 mostrarTablero(tablero);
-                modoDeJuego(Player1, Player2, tablero, 0);
+                modoDeJuego(Player1, Player2, tablero, 0, 0);
                 rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
-            case 2:
+            case 2:{
+                int dif = -1;
+                dif = seleccionarDificultad();
                 mostrarTablero(tablero);
-                modoDeJuego(Player1, CPU, tablero, -1);
+                modoDeJuego(Player1, CPU, tablero, -1, dif);
                 rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
+            }
             case 3:
                 //menuPrincipal(0); No creo que sea necesaria esta pantalla
                 // 3 -> Salir. Volver a llamar inicializar app? O hacer un ciclo mientras op != 4
@@ -116,22 +119,34 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
 
 }
 
+int seleccionarDificultad(){
+    char menu[][30] = {
+        "1 - Facil",
+        "2 - Dificil"
+    };
+    int tam_menu = sizeof(menu)/ sizeof(menu[0]);
+    menuCentrado(menu, tam_menu);
+    int opcion;
+    scanf("%d", &opcion);
 
-void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int isCPU){
+    return opcion;
+}
+
+void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int isCPU, int dificultad){
     int tTotal = 0, vic = 0, turno = 1;
 
     while(tTotal < 9 && !vic){
-        if(turno){ accionesPorTurno(player1, tablero, &vic, 0, turno); }
-        else{ accionesPorTurno(player2, tablero, &vic, isCPU, turno); }
+        if(turno){ accionesPorTurno(player1, tablero, &vic, 0, turno, 0); }
+        else{ accionesPorTurno(player2, tablero, &vic, isCPU, turno, dificultad); }
         tTotal++;
         turno = 1 - turno;
     }
     if(!vic) { centrarMensajeHorizontalmente("Empate!."); }
 }
 
-void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU, int turno){
+void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU, int turno, int dificultad){
     char figura = figuraActual(turno);
-    turnoJugador(isCPU, tablero, turno);
+    turnoJugador(isCPU, tablero, turno, dificultad);
     mostrarTablero(tablero);
     *vic = checkVictory(tablero, figura);
     victoria(*vic, player.nombre);

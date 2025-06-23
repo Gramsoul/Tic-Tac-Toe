@@ -9,20 +9,20 @@
 
 
 
-void turnoJugador(int pos, char tablero[3][3], int turno){
+void turnoJugador(int pos, char tablero[3][3], int turno, int dificultad){
     int isCPU = 0;
 
     if(pos == -1) {
         isCPU = 1;
-        pos = pedirPosicion(isCPU, tablero);
-    } else { pos = pedirPosicion(isCPU, tablero); }
+        pos = pedirPosicion(isCPU, tablero, dificultad);
+    } else { pos = pedirPosicion(isCPU, tablero, 0); }
 
-    buscarPosicion(pos, tablero, isCPU, turno);
+    buscarPosicion(pos, tablero, isCPU, turno, dificultad);
 
 }
 
 
-void buscarPosicion(int pos, char tablero[3][3], int isCPU, int turno){
+void buscarPosicion(int pos, char tablero[3][3], int isCPU, int turno, int dificultad){
     int f = 0;
     char figura = figuraActual(turno);
 
@@ -35,15 +35,18 @@ void buscarPosicion(int pos, char tablero[3][3], int isCPU, int turno){
             f = 1;
         }
         else {
-            pos = pedirPosicion(isCPU, tablero);
+            pos = pedirPosicion(isCPU, tablero, dificultad);
         }
     }
 }
 
-int pedirPosicion(int isCpu, char tablero[3][3]){
+int pedirPosicion(int isCpu, char tablero[3][3], int dificultad){
     int f = 0, pos = 0;
 
-    if(isCpu){ pos = difDos(tablero, 'O', 'X'); }
+    if(isCpu){
+            if(dificultad == 2){ pos = difDos(tablero, 'O', 'X'); }
+            else { pos = difUno(); }
+    }
     else { centrarMensajeHorizontalmente("Seleccione una posicion desde 1 a 9.");
         while(!f){
             scanf("%d", &pos);
