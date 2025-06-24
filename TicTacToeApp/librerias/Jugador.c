@@ -18,7 +18,7 @@ void mostrarJugadorAdmin(stJugador data){
     printf("Nombre -> %s %s\n", data.nombre, data.apellido);
     printf("Email -> %s\n", data.email);
     printf("pass -> %s\n", data.contra);
-    printf("puntuacion -> %c\n", data.puntuacion);
+    printf("puntuacion -> %d\n", data.puntuacion);
     printf("ID -> %d\n", data.id);
     printf("Cuenta activa -> %d\n", data.cuentaActiva);
     printf("Admin -> %d\n", data.isAdmin);

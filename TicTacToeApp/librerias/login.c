@@ -40,11 +40,11 @@ int validarPassword(stJugador data, char pass[]){
 
 stJugador dataLogin(){
     stJugador aux;
-    printf("Email: \n");
+    //printf("Email: \n"); //borrar
     fflush(stdin);
     emailValido(&aux);
     fflush(stdin);
-    printf("Password: \n");
+    centrarMensajeHorizontalmente("Password:");
     ocultarPassw(aux.contra, sizeof(aux.contra));
 
     return aux;
