@@ -52,9 +52,11 @@ int menuLogin(stJugador data_players[], int *data_players_val_pointer) {
 
         scanf("%d", &opcion);
         switch(opcion) {
-        case 1:
+        case 1:{
+            fflush(stdin);
             res = menuIniciarSesion(data_players, data_players_val);
             break;
+        }
         case 2:{
             stJugador nuevoJugador;
             guardarNuevoJugadorArr(data_players, &data_players_val, &nuevoJugador);

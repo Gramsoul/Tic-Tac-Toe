@@ -482,7 +482,7 @@
 	"Jugador.h"
 	<stdio.h>
 
-1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1750739170 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
 1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controldatos.c
 	<windows.h>
@@ -502,26 +502,27 @@
 
 1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\tablero.h
 
-1750714285 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.h
+1750739170 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.h
 	"Jugador.h"
 
-1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.c
+1750739170 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.c
 	<stdlib.h>
 	<stdio.h>
 	"victory.h"
 	"menus.h"
 
-1750713563 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.h
+1750739170 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\victory.h
+	"Jugador.h"
 
 1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\main.c
 	<stdio.h>
 	<stdlib.h>
 	"librerias/controApp.h"
 
-1750716493 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controapp.h
+1750739170 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controapp.h
 	"Jugador.h"
 
-1750713563 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1750739170 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -543,7 +544,7 @@
 	"Jugador.h"
 	"archivos.h"
 
-1750714798 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.c
+1750739556 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -555,7 +556,7 @@
 	"login.h"
 	"controlDatos.h"
 
-1750716716 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750739581 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<stdlib.h>
@@ -573,7 +574,7 @@
 1750716676 d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.h
 	"Jugador.h"
 
-1750716691 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.c
+1750716788 source:d:\repositorios\tic-tac-toe\tictactoeapp\librerias\turnos.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>

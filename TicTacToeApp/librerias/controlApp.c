@@ -83,7 +83,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
                 rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
-            case 2:
+            case 2:{
                 int dif = -1;
                 dif = seleccionarDificultad();
                 mostrarTablero(tablero);
@@ -91,6 +91,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
                 rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
+            }
             case 3:
                 mostrarEstadisticas(Player1);
                 break;
