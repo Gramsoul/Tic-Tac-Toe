@@ -140,10 +140,10 @@ void menuConfigUser(stJugador *User, stJugador data_players[], int *data_players
         " 4 - Volver"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
-    menuCentrado(menu, tam_menu);
 
     int select = 0;
     while(select !=4) {
+        menuCentrado(menu, tam_menu);
         scanf("%d", &select);
         switch(select) {
             case 1:
@@ -177,9 +177,9 @@ void menuConfigAdmin(stJugador *Admin, stJugador data_players[], int *data_playe
         " 5 - Volver"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
-    menuCentrado(menu, tam_menu);
 
     int select = 0;
+    menuCentrado(menu, tam_menu);
     while(select !=5) {
         scanf("%d", &select);
         switch(select) {

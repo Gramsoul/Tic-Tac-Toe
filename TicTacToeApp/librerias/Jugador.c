@@ -57,17 +57,29 @@ stJugador crearJugador(int cant_id){
     stJugador player;
     limpiarBuffer();
 
-    centrarMensajeHorizontalmente("Primer nombre: ");
-    fgets(player.nombre, sizeof(player.nombre), stdin);
-    player.nombre[strcspn(player.nombre, "\n")] = 0;   /// quitar '\n'
+    do {
+        centrarMensajeHorizontalmente("Primer nombre: ");
+        fgets(player.nombre, sizeof(player.nombre), stdin);
+        player.nombre[strcspn(player.nombre, "\n")] = 0;   /// quitar '\n'
 
-    centrarMensajeHorizontalmente("Apellido: ");
-    fgets(player.apellido, sizeof(player.apellido), stdin);
-    player.apellido[strcspn(player.apellido, "\n")] = 0;
+        if (strlen(player.nombre) == 0) {
+            printf("El nombre no puede estar vacío. Intente nuevamente.\n");
+        }
+    } while (strlen(player.nombre) == 0);
+
+    do {
+        centrarMensajeHorizontalmente("Apellido: ");
+        fgets(player.apellido, sizeof(player.apellido), stdin);
+        player.apellido[strcspn(player.apellido, "\n")] = 0;
+
+        if (strlen(player.apellido) == 0) {
+            printf("El apellido no puede estar vacío. Intente nuevamente.\n");
+        }
+    } while (strlen(player.apellido) == 0);
 
     emailValido(&player);
-
     passwordCorrect(&player);
+
     player.id = cant_id+1;
     player.puntuacion = 0;
     player.cuentaActiva = 1;
