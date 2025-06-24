@@ -4,17 +4,11 @@ Proyecto final Programacion 1
 
 ## TO DO 
 ### Alta Prioridad
-1- Opcion para cerrar definitivamente una cuenta
+1- Verificar username unico por jugador.
 
-2- Verificar username unico por jugador 
+2- Ver ranking de jugadores ordenados por puntos totales. (esta esto? no revise)
 
-3- Opcion para modificar username 
-
-4- Ver ranking de jugadores ordenados por puntos totales 
-
-5- El jugador tiene que poder ver sus estadísticas: Cantidad y porcentaje de partidas jugadas, ganadas, empate y derrotas
-
-6- Minimo 2 niveles de dificultad para el CPU
+3- Login Player 2 al jugar JcJ. Hacer que la función reset resetee la partida sin salir al menu, así no se desloguea el Player 2.
 
 ### Baja Prioridad
 1- Estructura stPartida que guardará la información de cada partidas
