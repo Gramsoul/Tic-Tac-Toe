@@ -191,7 +191,7 @@ void menuConfigAdmin(stJugador *Admin, stJugador data_players[], int *data_playe
                 adminBorrarCuentaArr(data_players, data_players_val);
                 break;
             case 4:
-                // adminDarPermisos(Admin); //dentro deberia recibir el file con users
+                adminDarPermisosArr(data_players, data_players_val);
                 break;
             case 5:
                 //Sale directamente de config
@@ -202,7 +202,7 @@ void menuConfigAdmin(stJugador *Admin, stJugador data_players[], int *data_playe
         }
     }
 }
-
+ /*
 void adminBorrarCuenta(stJugador *Admin) {
     FILE * original = fopen(DATA_JUGADORES, "rb");
     FILE * copia = fopen("temp.dat", "wb");
@@ -234,7 +234,7 @@ void adminBorrarCuenta(stJugador *Admin) {
     if(encontrado) {
         remove(DATA_JUGADORES);
         rename("temp.dat", DATA_JUGADORES);
-        
+
         // Recargar el array desde el archivo actualizado
         // Nota: Esto requeriría pasar el array y contador como parámetros
         // Por ahora, el array se recargará en la próxima ejecución
@@ -246,46 +246,66 @@ void adminBorrarCuenta(stJugador *Admin) {
         Sleep(1000);
     }
 }
+*/
 
 void adminBorrarCuentaArr(stJugador data_players[], int *data_players_val) {
     system("cls");
     centrarMensajeHorizontalmente("Lista de usuarios:");
     mostrarArrJugadoresAdmin(data_players, *data_players_val);
-    
-    centrarMensajeHorizontalmente("Ingrese el ID del usuario a eliminar:");
+
+    centrarMensajeHorizontalmente("Ingrese el ID del usuario a eliminar: ");
     int id_eliminar;
     scanf("%d", &id_eliminar);
-    
+
     int pos = buscarIDArr(data_players, *data_players_val, id_eliminar);
-    
+
     if(pos != -1) {
         // Eliminar del array
         for(int i = pos; i < *data_players_val - 1; i++) {
             data_players[i] = data_players[i + 1];
         }
         (*data_players_val)--;
-        
+
         // Guardar array actualizado al archivo
         guardarArr(data_players, *data_players_val);
-        
-        centrarMensajeHorizontalmente("Usuario eliminado exitosamente!");
+
+        centrarMensajeHorizontalmente("Usuario eliminado exitosamente");
         Sleep(1000);
     } else {
-        centrarMensajeHorizontalmente("Usuario no encontrado!");
+        centrarMensajeHorizontalmente("Usuario no encontrado");
         Sleep(1000);
     }
 }
 
-/*
-void adminDarPermisos(stJugador *Admin) {
 
+void adminDarPermisosArr(stJugador data_players[], int *data_players_val) {
+    system("cls");
+    centrarMensajeHorizontalmente("Lista de usuarios:");
+    mostrarArrJugadoresAdmin(data_players, *data_players_val);
+
+    centrarMensajeHorizontalmente("Ingrese el ID del usuario al que quiere dar permisos de admin: ");
+    int id_admin;
+    scanf("%d", &id_admin);
+
+    int pos = buscarIDArr(data_players, *data_players_val, id_admin);
+
+    if (pos != -1) {
+        data_players[pos].isAdmin = 1;
+        guardarArr(data_players, data_players_val);
+
+        centrarMensajeHorizontalmente("Permisos de administrador asignados correctamente");
+        Sleep(1000);
+    } else {
+        centrarMensajeHorizontalmente("Usuario no encontrado");
+        Sleep(1000);
+    }
 }
-*/
+
 
 void modificarUsuario(stJugador *User) {
     system("cls");
     limpiarBuffer(); // Limpiar buffer antes de fgets
-    
+
     centrarMensajeHorizontalmente("Primer nombre:");
     fgets(User->nombre, sizeof(User->nombre), stdin);
     User->nombre[strcspn(User->nombre, "\n")] = 0; // Eliminar \n
@@ -293,7 +313,7 @@ void modificarUsuario(stJugador *User) {
     centrarMensajeHorizontalmente("Apellido:");
     fgets(User->apellido, sizeof(User->apellido), stdin);
     User->apellido[strcspn(User->apellido, "\n")] = 0; // Eliminar \n
-    
+
     centrarMensajeHorizontalmente("Datos modificados exitosamente!");
     Sleep(1000);
 }

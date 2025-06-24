@@ -23,7 +23,7 @@ void inicializarApp(){
 
     int control = 1;
     do {
-        control = 1; // ???
+        control = 1; // ??? <- Se defaultea a 1 cada vez que se reinicia el ciclo
         int id_logged = menuLogin(data_players_arr, &data_players_val);
 
         if(id_logged != -1) { // id_logged -1 -> opcion 3 = salir
