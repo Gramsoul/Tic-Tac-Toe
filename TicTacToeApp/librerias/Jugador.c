@@ -72,6 +72,9 @@ stJugador crearJugador(int cant_id){
     player.puntuacion = 0;
     player.cuentaActiva = 1;
     player.isAdmin = 0;
+    player.partidasJugadas = 0;
+    player.partidasGanadas = 0;
+    player.partidasEmpatadas = 0;
 
     return player;
 }
@@ -129,7 +132,7 @@ stJugador buscarPlayerLogged(stJugador data_players[], int data_players_val, int
     stJugador aux;
 
     for(int i=0; i<data_players_val; i++) {
-        if(data_players[i].id == id_logged) {
+        if(data_players[i].id == id_logged && data_players[i].cuentaActiva == 1) {
             aux = data_players[i];
         }
     }
@@ -151,5 +154,29 @@ int buscarIDArr(stJugador data[], int data_val, int id){
         }
     }
     return pos;
+}
+
+void mostrarEstadisticas(stJugador User) {
+    system("cls");
+    centrarMensajeHorizontalmente("Estadisticas");
+
+    printf("Nombre: %s\n", User.nombre);
+    printf("Partidas jugadas: %d\n", User.partidasJugadas);
+
+    int perdidas = User.partidasJugadas - User.partidasGanadas - User.partidasEmpatadas;
+    float porcentajeGanadas = 0, porcentajeEmpatadas = 0, porcentajePerdidas = 0;
+
+    if (User.partidasJugadas > 0) {
+        porcentajeGanadas = (User.partidasGanadas * 100.0f) / User.partidasJugadas;
+        porcentajeEmpatadas = (User.partidasEmpatadas * 100.0f) / User.partidasJugadas;
+        porcentajePerdidas = (perdidas * 100.0f) / User.partidasJugadas;
+    }
+
+    printf("Ganadas   : %d\t(%.2f%%)\n", User.partidasGanadas, porcentajeGanadas);
+    printf("Empatadas : %d\t(%.2f%%)\n", User.partidasEmpatadas, porcentajeEmpatadas);
+    printf("Perdidas  : %d\t(%.2f%%)\n", perdidas, porcentajePerdidas);
+
+    printf("\nPresione una tecla para volver...");
+    getch();
 }
 

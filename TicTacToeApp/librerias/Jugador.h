@@ -10,6 +10,10 @@ typedef struct{
     int puntuacion;
     int cuentaActiva;
     int isAdmin;
+
+    int partidasJugadas;
+    int partidasGanadas;
+    int partidasEmpatadas;
 }stJugador;
 
 void mostrarJugador(stJugador data);
@@ -25,6 +29,7 @@ void mostrarPuntuaciones(stJugador arr[], int val);
 void toUpperString(char *str);
 void modificarPuntuacion(stJugador data[], int id,int nuevaPuntuacion);
 void mostrarPuntuacionesAdm(stJugador arr[], int val);
+void mostrarEstadisticas(stJugador User);
 int buscarIDArr(stJugador data[], int data_val, int id);
 
 

@@ -20,9 +20,12 @@ void menuConfigUser(stJugador *User, stJugador data_players[], int *data_players
 void menuConfigAdmin(stJugador *Admin, stJugador data_players[], int *data_players_val);
 void adminBorrarCuenta(stJugador *Admin);
 void adminBorrarCuentaArr(stJugador data_players[], int *data_players_val);
+void adminDarPermisosArr(stJugador data_players[], int *data_players_val);
 void modificarUsuario(stJugador *User);
 void modificarPassword(stJugador *User);
+void borrarCuenta(stJugador *User);
 void menuAdmin(stJugador data[], int val);
+
 
 
 

@@ -594,12 +594,12 @@
 	"Jugador.h"
 	<stdio.h>
 
-1750717021 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\jugador.h
+1750737274 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\jugador.h
 
-1750717021 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\menus.h
+1750732837 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\menus.h
 	"Jugador.h"
 
-1750717021 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\controlapp.c
+1750737510 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\controlapp.c
 	<time.h>
 	<stdio.h>
 	<stdlib.h>
@@ -616,10 +616,11 @@
 
 1750717021 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\tablero.h
 
-1750717021 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\controapp.h
+1750738811 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\controapp.h
 	"Jugador.h"
 
-1750717021 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\victory.h
+1750737455 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\victory.h
+	"Jugador.h"
 
 1750717021 b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\turnos.h
 	"Jugador.h"
@@ -637,7 +638,7 @@
 	"archivos.h"
 	"menus.h"
 
-1750717021 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\jugador.c
+1750737390 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\jugador.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -656,7 +657,7 @@
 	"Jugador.h"
 	"archivos.h"
 
-1750717021 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\menus.c
+1750737524 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\menus.c
 	<stdlib.h>
 	<stdio.h>
 	<conio.h>
@@ -684,7 +685,7 @@
 	"menus.h"
 	"controApp.h"
 
-1750717021 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\victory.c
+1750737466 source:b:\universidad\progra1\tateti\tic-tac-toe\tic-tac-toe\tictactoeapp\librerias\victory.c
 	<stdlib.h>
 	<stdio.h>
 	"victory.h"

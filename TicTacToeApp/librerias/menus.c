@@ -18,9 +18,10 @@ int seleccionModo(){
         " ",
         " 1 - Jugador vs Jugador",
         " 2 - Jugador vs CPU",
-        " 3 - Desloguear",
+        " 3 - Ver estadisticas",
         " 4 - Configuracion",
-        " 5 - Salir"
+        " 5 - Desloguear",
+        " 6 - Salir"
     };
     int tam_menu = sizeof(menu)/ sizeof(menu[0]);
     menuCentrado(menu, tam_menu);
@@ -152,7 +153,7 @@ void menuConfigUser(stJugador *User, stJugador data_players[], int *data_players
                 modificarPassword(User);
                 break;
             case 3:
-                //borrarCuenta(User);
+                borrarCuenta(User);
                 break;
             case 4:
                 //Sale directamente de config
@@ -163,6 +164,7 @@ void menuConfigUser(stJugador *User, stJugador data_players[], int *data_players
         }
     }
 }
+
 
 void menuConfigAdmin(stJugador *Admin, stJugador data_players[], int *data_players_val) {
     char menu[][30] = {
@@ -291,7 +293,7 @@ void adminDarPermisosArr(stJugador data_players[], int *data_players_val) {
 
     if (pos != -1) {
         data_players[pos].isAdmin = 1;
-        guardarArr(data_players, data_players_val);
+        guardarArr(data_players, *data_players_val);
 
         centrarMensajeHorizontalmente("Permisos de administrador asignados correctamente");
         Sleep(1000);
@@ -321,6 +323,26 @@ void modificarUsuario(stJugador *User) {
 void modificarPassword(stJugador *User) {
     system("cls");
     passwordCorrect(User);
+}
+
+void borrarCuenta(stJugador *User) {
+    system("cls");
+    centrarMensajeHorizontalmente("Desea cerrar definitivamente su cuenta?");
+    char control = 'x';
+    do {
+        printf("Ingrese su respuesta (s/n): \n");
+        scanf(" %c", &control);
+        control = tolower(control);
+    } while(control != 's' && control != 'n');
+
+    if(control == 's') {
+        User->cuentaActiva = 0;
+        centrarMensajeHorizontalmente("Cuenta desactivada correctamente");
+    } else {
+        centrarMensajeHorizontalmente("Operación cancelada");
+    }
+
+    Sleep(1000);
 }
 
 ///Tomas: Las funciones de abajo creo que se podrian borrar

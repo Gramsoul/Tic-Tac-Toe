@@ -4,11 +4,12 @@
 #include "menus.h"
 
 
-void victoria(int n, char name[]){
+void victoria(int n, stJugador *player){
     if (n == 1){
         char msj[100];
-        sprintf(msj, "Victoria para %s", name);
+        sprintf(msj, "Victoria para %s", player->nombre);
         centrarMensajeHorizontalmente(msj);
+        player->partidasGanadas++;
     }
 }
 int checkVictory(char tablero[3][3], char letra){ ///Las flag estan para que en caso de doble condicion de victoria, solo salte 1.

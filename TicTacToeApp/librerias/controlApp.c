@@ -74,29 +74,25 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
     /*  res recibe el id del jugador, hay que usar una
         funcion que busque el jugador en el array por el id
         y ese jugador es el que se utiliza para modoDeJego() */
-    while(select != 3){
+    while(select != 5){
         select = seleccionModo();
         switch(select){
             case 1:
                 mostrarTablero(tablero);
-                modoDeJuego(Player1, Player2, tablero, 0, 0);
+                modoDeJuego(&Player1, &Player2, tablero, 0, 0);
                 rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
-            case 2:{
+            case 2:
                 int dif = -1;
                 dif = seleccionarDificultad();
                 mostrarTablero(tablero);
-                modoDeJuego(Player1, CPU, tablero, -1, dif);
+                modoDeJuego(&Player1, &CPU, tablero, -1, dif);
                 rellenarTablero(tablero);
                 resetApp(tablero);
                 break;
-            }
             case 3:
-                //menuPrincipal(0); No creo que sea necesaria esta pantalla
-                // 3 -> Salir. Volver a llamar inicializar app? O hacer un ciclo mientras op != 4
-                centrarMensajeHorizontalmente("Saliendo...");
-                *control = 0;
+                mostrarEstadisticas(Player1);
                 break;
             case 4:
                 menuConfig(&Player1, data_players, data_players_val);
@@ -108,7 +104,11 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
                 }
                 break;
             case 5:
-                select = 3;
+                centrarMensajeHorizontalmente("Saliendo...");
+                *control = 0;
+                break;
+            case 6:
+                select = 5;
                 *id_logged = -1;
                 break;
             default:
@@ -132,8 +132,10 @@ int seleccionarDificultad(){
     return opcion;
 }
 
-void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int isCPU, int dificultad){
+void modoDeJuego(stJugador *player1, stJugador *player2, char tablero[3][3], int isCPU, int dificultad){
     int tTotal = 0, vic = 0, turno = 1;
+    player1->partidasJugadas++;
+    player2->partidasJugadas++;
 
     while(tTotal < 9 && !vic){
         if(turno){ accionesPorTurno(player1, tablero, &vic, 0, turno, 0); }
@@ -141,15 +143,19 @@ void modoDeJuego(stJugador player1, stJugador player2, char tablero[3][3], int i
         tTotal++;
         turno = 1 - turno;
     }
-    if(!vic) { centrarMensajeHorizontalmente("Empate!."); }
+    if(!vic) {
+            centrarMensajeHorizontalmente("Empate!.");
+            player1->partidasEmpatadas++;
+            player2->partidasEmpatadas++;
+    }
 }
 
-void accionesPorTurno(stJugador player, char tablero[3][3], int *vic, int isCPU, int turno, int dificultad){
+void accionesPorTurno(stJugador *player, char tablero[3][3], int *vic, int isCPU, int turno, int dificultad){
     char figura = figuraActual(turno);
     turnoJugador(isCPU, tablero, turno, dificultad);
     mostrarTablero(tablero);
     *vic = checkVictory(tablero, figura);
-    victoria(*vic, player.nombre);
+    victoria(*vic, player);
 }
 
 char figuraActual(int turno){ return (turno == 1)? 'X': 'O'; }
