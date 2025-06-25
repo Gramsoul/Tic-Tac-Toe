@@ -147,7 +147,10 @@ void modoDeJuego(stJugador *player1, stJugador *player2, char tablero[3][3], int
     if(!vic) {
             centrarMensajeHorizontalmente("Empate!.");
             player1->partidasEmpatadas++;
+            //player1->puntuacion++;
             player2->partidasEmpatadas++;
+            //player2->puntuacion++;
+        //SE AGREGO LA PUNTUACION DE EMPATE.
     }
 }
 
