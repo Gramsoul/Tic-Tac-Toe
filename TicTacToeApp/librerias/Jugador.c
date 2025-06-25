@@ -174,6 +174,7 @@ void mostrarEstadisticas(stJugador User) {
 
     printf("Nombre: %s\n", User.nombre);
     printf("Partidas jugadas: %d\n", User.partidasJugadas);
+    printf("Puntuacion: %d\n", User.puntuacion);
 
     int perdidas = User.partidasJugadas - User.partidasGanadas - User.partidasEmpatadas;
     float porcentajeGanadas = 0, porcentajeEmpatadas = 0, porcentajePerdidas = 0;

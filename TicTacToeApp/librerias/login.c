@@ -4,6 +4,7 @@
 #include "login.h"
 #include "Jugador.h"
 #include "archivos.h"
+#include "menus.h"
 
 int login(stJugador data[], int data_v){
     int flag = 0;
