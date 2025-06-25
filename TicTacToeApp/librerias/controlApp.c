@@ -59,7 +59,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
 
     // Buscar el jugador logueado en el array
     stJugador Player1 = buscarPlayerLogged(data_players, *data_players_val, *id_logged);
-    stJugador Player2 = {
+    /*stJugador Player2 = {
         98,
         "Romina",
         "Gimenez",
@@ -68,7 +68,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
         0,
         1,
         1
-    };
+    }; */
     ///
 
     /*  res recibe el id del jugador, hay que usar una
@@ -78,6 +78,10 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
         select = seleccionModo();
         switch(select){
             case 1:
+                system("cls");
+                printf("\nIniciar sesion Player 2: \n");
+                int id_logged_player2 = menuIniciarSesion(data_players, *data_players_val);
+                stJugador Player2 = buscarPlayerLogged(data_players, *data_players_val, id_logged_player2);
                 mostrarTablero(tablero);
                 modoDeJuego(&Player1, &Player2, tablero, 0, 0);
                 rellenarTablero(tablero);

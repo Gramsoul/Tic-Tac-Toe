@@ -467,7 +467,7 @@
 	"menus.h"
 	"controApp.h"
 
-1750880577 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\victory.c
+1750881727 source:b:\universidad\progra1\tateti\tic-tac-toe\tictactoeapp\librerias\victory.c
 	<stdlib.h>
 	<stdio.h>
 	"victory.h"

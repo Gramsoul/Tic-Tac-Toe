@@ -10,7 +10,7 @@ void victoria(int n, stJugador *player){
         sprintf(msj, "Victoria para %s", player->nombre);
         centrarMensajeHorizontalmente(msj);
         player->partidasGanadas++;
-        player->puntuacion = player->puntuacion + 3; //FIJARSE SI FUNCIONA Y DESPUES RECIBIR POR PARAMETRO EL JUGADOR PERDEDOR PARA HACERLE +1
+        player->puntuacion = player->puntuacion + 3;
     }
 }
 int checkVictory(char tablero[3][3], char letra){ ///Las flag estan para que en caso de doble condicion de victoria, solo salte 1.
