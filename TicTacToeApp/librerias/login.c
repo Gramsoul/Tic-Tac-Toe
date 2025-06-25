@@ -41,7 +41,6 @@ int validarPassword(stJugador data, char pass[]){
 
 stJugador dataLogin(){
     stJugador aux;
-    //printf("Email: \n"); //borrar
     fflush(stdin);
     emailValido(&aux);
     fflush(stdin);

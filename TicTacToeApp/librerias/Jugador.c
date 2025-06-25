@@ -17,8 +17,8 @@ void mostrarJugador(stJugador data){
 void mostrarJugadorAdmin(stJugador data){
     printf("Nombre -> %s %s\n", data.nombre, data.apellido);
     printf("Email -> %s\n", data.email);
-    printf("pass -> %s\n", data.contra);
-    printf("puntuacion -> %d\n", data.puntuacion);
+    printf("Password -> %s\n", data.contra);
+    printf("Puntuacion -> %d\n", data.puntuacion);
     printf("ID -> %d\n", data.id);
     printf("Cuenta activa -> %d\n", data.cuentaActiva);
     printf("Admin -> %d\n", data.isAdmin);
@@ -78,6 +78,9 @@ stJugador crearJugador(int cant_id){
     } while (strlen(player.apellido) == 0);
 
     emailValido(&player);
+    //while( emailValido(&player) != 0 ) {
+    //      funcion que verifique que el email no esté ocupado
+    //}
     passwordCorrect(&player);
 
     player.id = cant_id+1;

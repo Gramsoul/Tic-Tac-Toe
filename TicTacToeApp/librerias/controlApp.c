@@ -82,6 +82,7 @@ void controlApp(char tablero[3][3], stJugador data_players[], int *data_players_
                 printf("\nIniciar sesion Player 2: \n");
                 int id_logged_player2 = menuIniciarSesion(data_players, *data_players_val);
                 stJugador Player2 = buscarPlayerLogged(data_players, *data_players_val, id_logged_player2);
+                //No se guardan las stats de Player2, hay que modificar funcion de control datos
                 mostrarTablero(tablero);
                 modoDeJuego(&Player1, &Player2, tablero, 0, 0);
                 rellenarTablero(tablero);
